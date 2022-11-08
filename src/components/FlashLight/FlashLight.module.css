@@ -6,8 +6,8 @@
 .flashLight {
   position: fixed;
   cursor: pointer;
-  bottom: calc(var(--size-ten) + 1vw);
-  right: calc(var(--size-ten) + 1vw);
+  bottom: calc(var(--size-twenty) + 1vw);
+  right: calc(var(--size-twenty) + 1vw);
   height: calc(80px + 2vw);
   width: calc(80px + 2vw);
   border-radius: 50%;
