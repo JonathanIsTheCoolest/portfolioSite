@@ -1,0 +1,35 @@
+.navBar {
+  font-family: 'Exo 2', 'Barlow', sans-serif;
+  overflow: hidden;
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  top: 0;
+  width: 100%;
+  transition: var(--transition-two);
+  box-shadow: 0 0 5px black;
+  box-sizing: border-box;
+  padding: var(--size-ten) calc(var(--size-forty) + 1vw);
+}
+
+.navBar .logoContainer,
+.navBar .linkContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navBar a {
+  margin-right: var(--size-twenty);
+  font-size: calc(var(--size-ten) + 1vw);
+}
+
+.navBar .about {
+  margin-right: 0;
+}
+
+.navBar .logo {
+  font-size: calc(var(--size-twenty) + 1vw);
+  text-shadow: 0 1px 2px grey;
+}

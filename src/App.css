@@ -1,0 +1,13 @@
+.container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  transition: var(--transition-three);
+  min-width: 300px;
+  z-index: 10000;
+  background-color: rgba(0, 0, 0, 1);
+}
+
+.topContentContainer {
+  padding: calc(var(--size-fifty) * 2) calc(var(--size-forty) + 1vw);
+}

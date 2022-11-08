@@ -1,0 +1,25 @@
+.myImageContainer {
+  border-radius: 50%;
+}
+
+.smallImageContainer {
+  height: 100px;
+  width: 100px;
+}
+
+.mediumImageContainer {
+  height: 200px;
+  width: 200px;
+}
+
+.largeImageContainer {
+  height: 300px;
+  width: 300px;
+}
+
+.myImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}

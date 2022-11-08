@@ -1,0 +1,29 @@
+.flashLight,
+.flashLightMessage {
+  transition: var(--transition-one);
+}
+
+.flashLight {
+  position: fixed;
+  cursor: pointer;
+  bottom: calc(var(--size-ten) + 1vw);
+  right: calc(var(--size-ten) + 1vw);
+  height: calc(80px + 2vw);
+  width: calc(80px + 2vw);
+  border-radius: 50%;
+}
+
+.flashLight img {
+  height: 100%;
+  width: 100%;
+}
+
+.flashLightMessage {
+  position: absolute;
+  top: -80px;
+  left: -100px;
+  border-radius: var(--size-five);
+  width: 100px;
+  background-color: aqua;
+  padding: var(--size-fifteen);
+}

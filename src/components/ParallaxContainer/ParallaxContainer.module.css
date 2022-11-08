@@ -1,0 +1,29 @@
+.parallaxContainer {
+  font-family: 'Sen', san-serif;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+}
+
+.parallaxContent {
+  padding-top: var(--size-fifty);
+}
+
+.parallaxContainer h1,
+.parallaxContainer h2,
+.parallaxContainer div {
+  text-shadow: 0 1px 2px grey;
+  font-weight: 400;
+}
+
+.parallaxContainer h1,
+.parallaxContainer h2 {
+  font-size: calc(var(--size-ten) + 1vw);
+}
+
+.parallaxContainer div {
+  font-size: calc(var(--size-thirty) + 1vw);
+}
