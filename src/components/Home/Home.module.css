@@ -1,3 +1,65 @@
 .parallaxMessageContainer {
   margin-bottom: var(--size-twenty);
 }
+
+.homeContentContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: stretch;
+  padding: calc(var(--size-twenty) + 1vw);
+}
+
+.homeFlexItems {
+  position: relative;
+  width: calc(300px + 10vw);
+  padding: calc(var(--size-twenty) + 1vw);
+  border: 1px solid transparent;
+  border-radius: var(--size-ten);
+  margin: calc(var(--size-twenty) + 1vw) 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.homeFlexItems input[type="button"] {
+  margin-top: calc(var(--size-ten) + 1vw);
+  padding: var(--size-two) var(--size-ten);
+  font-size: calc(var(--size-five) + 1vw);
+} 
+
+.topLeftBox,
+.bottomRightBox,
+.bottomLeftBox,
+.topRightBox {
+  position: absolute;
+  border: 1px solid transparent;
+  border-radius: var(--size-ten);
+  width: calc(var(--size-ten) + 5vw);
+  height: calc(var(--size-ten) + 5vw);
+}
+
+.topLeftBox {
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+}
+
+.topRightBox {
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+}
+
+.bottomRightBox {
+  bottom: 0;
+  right: 0;
+  transform: translate(50%, 50%);
+}
+
+.bottomLeftBox {
+  bottom: 0;
+  left: 0;
+  transform: translate(-50%, 50%);
+}

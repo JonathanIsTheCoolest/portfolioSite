@@ -1,7 +1,7 @@
 * {
-  --size-one: 0.0625;
+  --size-one: 0.0625rem;
   --size-two: 0.125rem;
-  --size-five: 0.3125;
+  --size-five: 0.3125rem;
   --size-ten: 0.625rem;
   --size-fifteen: 0.9375rem;
   --size-twenty: 1.25rem;
@@ -11,17 +11,18 @@
   --transition-one: ease-in-out 0.25s;
   --transition-two: ease-in-out 0.5s;
   --transition-three: ease-in-out 1s;
+  --text-shadow-one: 0 var(--size-one) var(--size-two) grey;
 }
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Exo 2', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
-  font-size: calc(12px + 1vw);
+  font-size: calc(0.75rem + 1vw);
   min-width: 300px;
 }
 
@@ -38,4 +39,15 @@ h1, h2, h3, a, p, div {
 a {
   text-decoration: none;
   color: aqua;
+}
+
+
+input[type="button"] {
+  background-color: transparent;
+  border: solid transparent;
+  border-radius: var(--size-five);
+  margin: none;
+  padding: var(--size-ten);
+  font-family: 'Sen', sans-serif;
+  cursor: pointer;
 }

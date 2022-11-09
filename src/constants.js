@@ -28,7 +28,7 @@ export const DARK_THEME_COLOR_OBJECT = buildColorThemeObject(
 )
 
 export const LIGHT_THEME_COLOR_OBJECT = buildColorThemeObject(
-  'light', '#82e691', '#FBFAF9', '#FAC6B5', '#016855', '#70cb7eea', lightModeFlashLight, LIGHT_OFF_MESSAGE, logoLightCircle, logoLightSquare, logoLightPlain
+  'light', '#B6CCC9', '#FBFAF9', '#FAC6B5', '#016855', '#70cb7eea', lightModeFlashLight, LIGHT_OFF_MESSAGE, logoLightCircle, logoLightSquare, logoLightPlain
 )
 
 export const LOCAL_COLOR_OBJECT = LOCAL_STORAGE_COLOR_OBJECT || LIGHT_THEME_COLOR_OBJECT;
@@ -69,3 +69,11 @@ export const REACT = 'React';
 export const NODE_JS = 'Node.js';
 export const EXPRESS = 'Express.js';
 export const MONGO_DB = 'MongoDB';
+
+export const LANGUAGE_ARRAY = [
+  HTML, CSS, JAVASCRIPT, REACT, NODE_JS, EXPRESS, MONGO_DB
+];
+
+// Statements
+export const HOME_PAGE_STATEMENT = 
+  "Thank you for your interest in my work! I have experience building various kinds of websites with responsive design. I am open for freelance work and full-time employment";

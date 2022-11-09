@@ -9,8 +9,9 @@ import styles from '../FlashLight/FlashLight.module.css';
 
 const FlashLight = () => {
   const {colorObject, setContextState} = ProviderContext();
-  const { name, flashLightIcon, message } = colorObject;
+  const { name, flashLightIcon, message, colorTwo, colorThree } = colorObject;
   const [ isHovered, setIsHovered ] = useState(false);
+  const [ isExit, setIsExit ] = useState(false);
 
   const onClick = () => {
     if (name === LIGHT.name) {
@@ -24,26 +25,47 @@ const FlashLight = () => {
     );
   };
 
+  const onMouseEnter = () => {
+    setIsExit(false)
+    setIsHovered(true);
+  }
+
+  const onMouseLeave = () => {
+    const onExit = () => {
+      setIsHovered(false);
+      setIsExit(false);
+    }
+    setIsExit(true);
+    setTimeout(() =>
+      !isHovered ? onExit() : null,
+      500
+    )
+  }
+
   return (
     <>
       <div 
         className={styles.flashLight} 
         style={{ backgroundColor: 'transparent' }} 
-        onClick={onClick}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
       >
-        <img src={flashLightIcon} alt="Flash Light" />
-        {/* {
+        <img 
+          src={flashLightIcon} 
+          alt="Flash Light" 
+          onClick={onClick}
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
+        />
+        {
           isHovered ?
-          <div className={styles.flashLightMessage}>
-            {message}
+          <div className={ isExit ? styles.flashLightMessageContainerExit : styles.flashLightMessageContainer }>
+            <div style={{ borderColor: colorThree, color: colorTwo, backgroundColor: colorTwo }} className={`${styles.flashLightMessage} ${styles.triRight} ${styles.bottomRightIn}`}>
+              <div style={{  color: colorThree }}>
+                {message}
+              </div>
+            </div>
           </div> :
           null
-        } */}
-        {/* <div className={styles.flashLightMessage}>
-            {message}
-        </div> */}
+        }
       </div>
 
     </>

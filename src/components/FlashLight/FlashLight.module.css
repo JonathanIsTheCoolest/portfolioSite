@@ -1,29 +1,67 @@
-.flashLight,
-.flashLightMessage {
-  transition: var(--transition-one);
-}
-
 .flashLight {
   position: fixed;
-  cursor: pointer;
   bottom: calc(var(--size-twenty) + 1vw);
   right: calc(var(--size-twenty) + 1vw);
   height: calc(80px + 2vw);
   width: calc(80px + 2vw);
   border-radius: 50%;
+  z-index: 1000;
 }
 
 .flashLight img {
   height: 100%;
   width: 100%;
+  cursor: pointer;
+}
+
+.flashLightMessageContainerExit,
+.flashLightMessageContainer {
+  box-sizing: border-box;
+  cursor: default;
+  position: absolute;
+  top: -125%;
+  right: 50%;
+}
+
+.flashLightMessageContainer {
+  animation: messageContainer 0.5s;
+}
+
+.flashLightMessageContainerExit {
+  animation: messageContainerExit 0.5s forwards;
 }
 
 .flashLightMessage {
-  position: absolute;
-  top: -80px;
-  left: -100px;
+  position: relative;
   border-radius: var(--size-five);
-  width: 100px;
-  background-color: aqua;
+  width: calc(calc(var(--size-fifty) * 2) + 5vw);
   padding: var(--size-fifteen);
+  border: var(--size-five) solid;
+}
+
+.triRight.bottomRightIn:before {
+	content: ' ';
+	position: absolute;
+	right: var(--size-thirty);
+	bottom: -1.5625rem;
+	border: var(--size-twenty) solid;
+	border-color: currentColor currentColor transparent transparent;
+}
+
+@keyframes messageContainer {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes messageContainerExit {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
