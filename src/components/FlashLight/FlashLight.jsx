@@ -28,7 +28,7 @@ const FlashLight = () => {
   const onMouseEnter = () => {
     setIsExit(false)
     setIsHovered(true);
-  }
+  };
 
   const onMouseLeave = () => {
     const onExit = () => {
@@ -40,7 +40,7 @@ const FlashLight = () => {
       !isHovered ? onExit() : null,
       500
     )
-  }
+  };
 
   return (
     <>

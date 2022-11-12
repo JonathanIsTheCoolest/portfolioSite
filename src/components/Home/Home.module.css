@@ -63,3 +63,15 @@
   left: 0;
   transform: translate(-50%, 50%);
 }
+
+@media screen and (max-width: 450px) {
+  .homeFlexItems {
+    width: calc(175px + 10vw);
+  }
+  .topLeftBox,
+  .bottomRightBox,
+  .bottomLeftBox,
+  .topRightBox {
+    border-radius: var(--size-five);
+  }
+}

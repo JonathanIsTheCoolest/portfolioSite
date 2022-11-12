@@ -6,14 +6,17 @@ import {
 } from 'react-router-dom';
 import Home from './components/Home/Home';
 import About from './components/About/About';
+import Contact from './components/Contact/Contact';
 import './App.css';
 
-import { LOCAL_COLOR_OBJECT, HOME, ABOUT } from './constants';
+import { LOCAL_COLOR_OBJECT, HOME, ABOUT, CONTACT, HOME_ADDRESS, ABOUT_ADDRESS, CONTACT_ADDRESS } from './constants';
 
 
 export const UserContext = createContext();
 const ContextProvider = ({ children }) => {
   const context = {
+    isToggledNavBar: false,
+    isToggledOffNavBar: false,
     introAnimationShouldRun: true,
     colorObject: JSON.parse(LOCAL_COLOR_OBJECT),
     setContextState: (name, value) => {
@@ -36,8 +39,9 @@ function App() {
     <ContextProvider>
       <Router>
         <Routes>
-          <Route path="/" element={<Home isSelected={HOME}/>}/>
-          <Route path="/about" element={<About isSelected={ABOUT}/>}/>
+          <Route path={HOME_ADDRESS} element={<Home isSelected={HOME}/>}/>
+          <Route path={ABOUT_ADDRESS} element={<About isSelected={ABOUT}/>}/>
+          <Route path={CONTACT_ADDRESS} element={<Contact isSelected={CONTACT}/>}/>
         </Routes>
       </Router>
     </ContextProvider>
@@ -51,6 +55,8 @@ export const ProviderContext = () => {
   }
   // return context
   return {
+    isToggledNavBar: context.isToggledNavBar,
+    isToggledOffNavBar: context.isToggledOffNavBar,
     introAnimationShouldRun: context.introAnimationShouldRun,
     colorObject: context.colorObject,
     setContextState: context.setContextState,

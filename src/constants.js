@@ -24,24 +24,28 @@ export const COLOR_OBJECT = 'colorObject';
 export const LOCAL_STORAGE_COLOR_OBJECT = localStorage.getItem(COLOR_OBJECT)
 
 export const DARK_THEME_COLOR_OBJECT = buildColorThemeObject(
-  'dark', '#764633', 'black', '#6f988a', '#585a50', '#1c1007', darkModeFlashLight, LIGHT_ON_MESSAGE, logoDarkCircle, logoDarkSquare, logoDarkPlain
+  'dark', '#49585C', 'black', '#5F8575', '#C1E1C1', '#1c1007', darkModeFlashLight, LIGHT_ON_MESSAGE, logoDarkCircle, logoDarkSquare, logoDarkPlain
 )
 
 export const LIGHT_THEME_COLOR_OBJECT = buildColorThemeObject(
-  'light', '#B6CCC9', '#FBFAF9', '#FAC6B5', '#016855', '#70cb7eea', lightModeFlashLight, LIGHT_OFF_MESSAGE, logoLightCircle, logoLightSquare, logoLightPlain
+  'light', '#B6CCC9', '#FBFAF9', '#FAC6B5', '#016855', '#70cb7e', lightModeFlashLight, LIGHT_OFF_MESSAGE, logoLightCircle, logoLightSquare, logoLightPlain
 )
 
 export const LOCAL_COLOR_OBJECT = LOCAL_STORAGE_COLOR_OBJECT || LIGHT_THEME_COLOR_OBJECT;
 
 
 export const INTRO_ANIMATION_SHOULD_RUN = 'introAnimationShouldRun';
+export const IS_TOGGLED_NAV_NAVBAR = 'isToggledNavBar';
+export const IS_TOGGLED_OFF_NAV_NAVBAR = 'isToggledOffNavBar';
 
 export const HOME_ADDRESS = '/';
 export const ABOUT_ADDRESS = '/about';
+export const CONTACT_ADDRESS = '/contact';
 
 export const MY_IMAGE = myImage;
 export const HOME = 'Home';
 export const ABOUT = 'About';
+export const CONTACT = 'Contact';
 
 export const FIRST_NAME = 'Jonathan';
 export const LAST_NAME = 'Lascano';
