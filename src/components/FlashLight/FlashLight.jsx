@@ -9,7 +9,7 @@ import styles from '../FlashLight/FlashLight.module.css';
 
 const FlashLight = () => {
   const {colorObject, setContextState} = ProviderContext();
-  const { name, flashLightIcon, message, colorTwo, colorThree } = colorObject;
+  const { name, flashLightIcon, message, colorTwo, colorFive } = colorObject;
   const [ isHovered, setIsHovered ] = useState(false);
   const [ isExit, setIsExit ] = useState(false);
 
@@ -58,8 +58,8 @@ const FlashLight = () => {
         {
           isHovered ?
           <div className={ isExit ? styles.flashLightMessageContainerExit : styles.flashLightMessageContainer }>
-            <div style={{ borderColor: colorThree, color: colorTwo, backgroundColor: colorTwo }} className={`${styles.flashLightMessage} ${styles.triRight} ${styles.bottomRightIn}`}>
-              <div style={{  color: colorThree }}>
+            <div style={{ borderColor: 'transparent', color: colorTwo, backgroundColor: colorTwo }} className={`${styles.flashLightMessage} ${styles.triRight} ${styles.bottomRightIn}`}>
+              <div style={{  color: colorFive }}>
                 {message}
               </div>
             </div>

@@ -24,6 +24,7 @@ body {
   box-sizing: border-box;
   font-size: calc(0.75rem + 1vw);
   min-width: 300px;
+  transition: var(--transition-one);
 }
 
 code {

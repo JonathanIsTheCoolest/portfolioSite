@@ -3,7 +3,7 @@ import FlashLight from '../FlashLight/FlashLight';
 import NavBar from '../NavBar/NavBar';
 import ParallaxContainer from '../ParallaxContainer/ParallaxContainer';
 
-import myPhoto from '../../assets/myPictures/jonathan.jpeg';
+import myPhoto from '../../assets/myPictures/jonathanAbout.png';
 
 const About = ({ isSelected }) => {
   return (

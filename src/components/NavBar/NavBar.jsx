@@ -3,6 +3,9 @@ import { ProviderContext} from '../../App';
 import { buildTextPropsObject as buildProps } from '../../functions/generalFunctions';
 import { HOME_ADDRESS, ABOUT_ADDRESS, CONTACT_ADDRESS, HOME, ABOUT, LINK, CONTACT, IS_TOGGLED_NAV_NAVBAR, IS_TOGGLED_OFF_NAV_NAVBAR } from '../../constants';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+
 import StyledText from '../StyledText/StyledText';
 
 import styles from '../NavBar/NavBar.module.css';
@@ -14,8 +17,8 @@ const NavBar = ({ isSelected }) => {
   const {colorTwo, colorFour} = colorObject;
 
   const navBarObject = [
-    { type: LINK, text: HOME, className: undefined, route: HOME_ADDRESS },
-    { type: LINK, text: ABOUT, className: undefined, route: ABOUT_ADDRESS },
+    { type: LINK, text: HOME, className: styles.home, route: HOME_ADDRESS },
+    { type: LINK, text: ABOUT, className: styles.about, route: ABOUT_ADDRESS },
     { type: LINK, text: CONTACT, className: styles.contact, route: CONTACT_ADDRESS },
   ];
 
@@ -75,7 +78,7 @@ const NavBar = ({ isSelected }) => {
         { navOptions }
       </div>
       <div className={styles.hamburgerMenuContainer}>
-        <img onClick={toggleNav} src="" alt="BURGER" />
+        <FontAwesomeIcon className={`${styles.hamburger} ${isToggledNavBar ? styles.hamburgerToggle : null}`} icon={faBars} onClick={toggleNav} style={{ color: colorTwo }}/>
         <div 
           style={{ backgroundColor: colorFour }} 
           className={`

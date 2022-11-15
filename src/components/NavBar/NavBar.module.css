@@ -26,18 +26,34 @@
   font-size: calc(var(--size-ten) + 1vw);
 }
 
+.navBar .home,
+.navBar .about,
+.navBar .contact,
+.navBar .logo {
+  text-shadow: var(--text-shadow-one);
+}
+
 .navBar .contact {
   margin-right: 0;
 }
 
 .navBar .logo {
   font-size: calc(var(--size-twenty) + 1vw);
-  text-shadow: var(--text-shadow-one);
 }
 
 .navBar .hamburgerMenuContainer {
   display: none;
   transition: var(--transition-one);
+}
+
+.navBar .hamburger {
+  font-size: calc(var(--size-twenty) + 1vw);
+  transform: rotate(0deg);
+  transition: var(--transition-one);
+}
+
+.navBar .hamburgerToggle {
+  transform: rotate(360deg);
 }
 
 .navBar .display {
@@ -90,7 +106,9 @@
   }
 
   .navBar .hamburgerMenuContainer {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
     height: calc(var(--size-twenty) + 1vw);
     width: calc(var(--size-twenty) + 1vw);

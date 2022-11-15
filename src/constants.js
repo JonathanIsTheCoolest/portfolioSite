@@ -1,7 +1,7 @@
 import { buildColorThemeObject } from "./functions/generalFunctions";
 
 // Image Imports
-import myImage from "./assets/myPictures/jonathan.jpeg";
+import myImage from "./assets/myPictures/jonathanHome.jpg";
 
 // Icon Imports
 import darkModeFlashLight from './assets/icons/darkModeFlashLight.png';
@@ -24,11 +24,11 @@ export const COLOR_OBJECT = 'colorObject';
 export const LOCAL_STORAGE_COLOR_OBJECT = localStorage.getItem(COLOR_OBJECT)
 
 export const DARK_THEME_COLOR_OBJECT = buildColorThemeObject(
-  'dark', '#49585C', 'black', '#5F8575', '#C1E1C1', '#1c1007', darkModeFlashLight, LIGHT_ON_MESSAGE, logoDarkCircle, logoDarkSquare, logoDarkPlain
+  'dark', '#49585C', 'black', '#5F8575', '#C1E1C1', '#F3D6A5', darkModeFlashLight, LIGHT_ON_MESSAGE, logoDarkCircle, logoDarkSquare, logoDarkPlain
 )
 
 export const LIGHT_THEME_COLOR_OBJECT = buildColorThemeObject(
-  'light', '#B6CCC9', '#FBFAF9', '#FAC6B5', '#016855', '#70cb7e', lightModeFlashLight, LIGHT_OFF_MESSAGE, logoLightCircle, logoLightSquare, logoLightPlain
+  'light', '#A5D3CC', '#FBFAF9', '#B9B1A9', '#E3CAC2', '#C8BFB5', lightModeFlashLight, LIGHT_OFF_MESSAGE, logoLightCircle, logoLightSquare, logoLightPlain
 )
 
 export const LOCAL_COLOR_OBJECT = LOCAL_STORAGE_COLOR_OBJECT || LIGHT_THEME_COLOR_OBJECT;

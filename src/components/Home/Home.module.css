@@ -38,30 +38,31 @@
   border-radius: var(--size-ten);
   width: calc(var(--size-ten) + 5vw);
   height: calc(var(--size-ten) + 5vw);
+  z-index: -1;
 }
 
 .topLeftBox {
   top: 0;
   left: 0;
-  transform: translate(-50%, -50%);
+  transform: translate(-25%, -25%);
 }
 
 .topRightBox {
   top: 0;
   right: 0;
-  transform: translate(50%, -50%);
+  transform: translate(25%, -25%);
 }
 
 .bottomRightBox {
   bottom: 0;
   right: 0;
-  transform: translate(50%, 50%);
+  transform: translate(25%, 25%);
 }
 
 .bottomLeftBox {
   bottom: 0;
   left: 0;
-  transform: translate(-50%, 50%);
+  transform: translate(-25%, 25%);
 }
 
 @media screen and (max-width: 450px) {

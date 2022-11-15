@@ -2,10 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ProviderContext } from '../../App';
 
-const StyledText = ({ props, isSelected, color, colorSelected, textOutline }) => {
+const StyledText = ({ props, isSelected, color, colorSelected }) => {
   const {type, text, className, route} = props;
   const { colorObject } = ProviderContext();
-  const {colorOne, colorTwo, colorThree, colorFour, colorFive} = colorObject;
+  const {colorTwo, colorThree, colorFour} = colorObject;
   const textColor = (color) => {
     return !!color ?
     color :
@@ -15,11 +15,6 @@ const StyledText = ({ props, isSelected, color, colorSelected, textOutline }) =>
     isSelected === text ?
     {color: textColor(colorSelected) || colorThree} :
     {color: textColor(color) || colorTwo};
-  const textStroke = (textOutline) => {
-    return !!textOutline ?
-    { WebkitTextStroke: textOutline } :
-    null;
-  }
     
   return (
     <>
