@@ -1,0 +1,96 @@
+.aboutContainer .gridContainer {
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr;
+  grid-template-areas: "one two three";
+}
+
+.gridOne,
+.gridTwo,
+.gridThree {
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.gridOne {
+  grid-area: one;
+}
+
+.gridTwo {
+  grid-area: two;
+}
+
+.gridThree {
+  grid-area: three;
+}
+
+.flexMessageTwoAndThree {
+  font-size: calc(var(--size-thirty) + 3vw);
+  text-align: right;
+  line-height: 1;
+}
+
+.aboutContainer .flexMessageOne,
+.aboutContainer .flexMessageTwo,
+.aboutContainer .flexMessageThree {
+  width: auto;
+}
+
+.aboutContainer .flexMessageTwo {
+  display: flex;
+  text-align: right;
+  justify-content: space-evenly;
+}
+
+.flexMessageTwo a {
+  margin: 0 calc(var(--size-ten) + 2vw);
+}
+
+.topLeftBox,
+.bottomRightBox {
+  position: absolute;
+  border: var(--size-two) solid transparent;
+  border-radius: var(--size-ten);
+  width: 50%;
+  height: 50%;
+  z-index: -1;
+}
+
+.topLeftBox {
+  top: 0;
+  left: 0;
+  transform: translate(-10%, -10%);
+}
+
+.bottomRightBox {
+  bottom: 0;
+  right: 0;
+  transform: translate(10%, 10%);
+}
+
+@media screen and (max-width: 950px) {
+  .aboutContainer .gridContainer {
+    display: flex;
+  }
+
+  .aboutContainer .flexMessageOne,
+  .aboutContainer .flexMessageTwo,
+  .aboutContainer .flexMessageThree {
+    width: calc(300px + 10vw);
+  }
+
+  .aboutContainer .flexMessageTwo {
+    flex-direction: row;
+  }
+
+  .aboutContainer .flexMessageThree {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .aboutContainer .flexMessageOne,
+  .aboutContainer .flexMessageTwo,
+  .aboutContainer .flexMessageThree {
+    width: calc(175px + 10vw);
+  }
+}

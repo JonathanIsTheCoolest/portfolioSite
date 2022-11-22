@@ -11,7 +11,6 @@ const FlashLight = () => {
   const {colorObject, setContextState} = ProviderContext();
   const { name, flashLightIcon, message, colorTwo, colorFive } = colorObject;
   const [ isHovered, setIsHovered ] = useState(false);
-  const [ isExit, setIsExit ] = useState(false);
 
   const onClick = () => {
     if (name === LIGHT.name) {
@@ -25,23 +24,6 @@ const FlashLight = () => {
     );
   };
 
-  const onMouseEnter = () => {
-    setIsExit(false)
-    setIsHovered(true);
-  };
-
-  const onMouseLeave = () => {
-    const onExit = () => {
-      setIsHovered(false);
-      setIsExit(false);
-    }
-    setIsExit(true);
-    setTimeout(() =>
-      !isHovered ? onExit() : null,
-      500
-    )
-  };
-
   return (
     <>
       <div 
@@ -52,20 +34,18 @@ const FlashLight = () => {
           src={flashLightIcon} 
           alt="Flash Light" 
           onClick={onClick}
-          onMouseEnter={onMouseEnter}
-          onMouseLeave={onMouseLeave}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
         />
-        {
-          isHovered ?
-          <div className={ isExit ? styles.flashLightMessageContainerExit : styles.flashLightMessageContainer }>
+          <div
+           className={ isHovered ? styles.flashLightMessageContainer : styles.flashLightMessageNone }
+          >
             <div style={{ borderColor: 'transparent', color: colorTwo, backgroundColor: colorTwo }} className={`${styles.flashLightMessage} ${styles.triRight} ${styles.bottomRightIn}`}>
               <div style={{  color: colorFive }}>
                 {message}
               </div>
             </div>
-          </div> :
-          null
-        }
+          </div>
       </div>
 
     </>

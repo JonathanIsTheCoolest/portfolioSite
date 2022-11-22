@@ -12,6 +12,7 @@
   --transition-two: ease-in-out 0.5s;
   --transition-three: ease-in-out 1s;
   --text-shadow-one: 0 var(--size-one) var(--size-two) grey;
+  --input-color: #36454F;
 }
 
 body {
@@ -42,8 +43,25 @@ a {
   color: aqua;
 }
 
+input,
+textarea {
+  box-sizing: border-box;
+  font-family: 'Exo 2', 'Barlow', sans-serif;
+  font-weight: 400; 
+}
 
-input[type="button"] {
+input {
+  font-size: calc(var(--size-ten) + 1vw);
+}
+
+textarea {
+  border: none;
+  resize: none;
+  font-size: calc(var(--size-five) + 1vw);
+}
+
+input[type="button"],
+input[type="submit"] {
   background-color: transparent;
   border: solid transparent;
   border-radius: var(--size-five);
@@ -51,4 +69,30 @@ input[type="button"] {
   padding: var(--size-ten);
   font-family: 'Sen', sans-serif;
   cursor: pointer;
+}
+
+input[type="email"]::placeholder,
+input[type="text"]::placeholder,
+textarea::placeholder {
+  color: var(--input-color);
+}
+
+input[type="email"]:hover,
+input[type="text"]:hover,
+textarea:hover {
+  border-color: transparent;
+  color: var(--input-color);
+}
+
+input[type="email"]:focus,
+input[type="text"]:focus,
+textarea:focus {
+  outline: none;
+  color: var(--input-color);
+}
+
+@media screen and (max-width: 600px) {
+  textarea {
+    font-size: calc(var(--size-ten) + 1vw);
+  } 
 }

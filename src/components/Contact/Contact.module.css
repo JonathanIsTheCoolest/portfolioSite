@@ -1,0 +1,118 @@
+.scrollContainerWidth {
+  width: 80%;
+  max-width: 1200px;
+}
+
+.contactContainer .formFlexContainer {
+  width: 100%;
+}
+
+.outerFlexOne {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  width: 100%;
+  height: calc(var(--size-fifty) + 5vw);
+}
+
+.innerFlexOne {
+  display: flex;
+  flex-direction: column;
+  margin-right: calc(var(--size-ten) + 1vw);
+  height: 100%;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.innerFlexOne input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid;
+  width: 100%;
+  height: 100%;
+}
+
+.innerFlexTwo,
+.innerFlexTwo textarea {
+  height: 100%;
+  width: 100%;
+}
+
+.innerFlexTwo {
+  margin-left: calc(var(--size-ten) + 1vw);
+}
+
+.innerFlexTwo textarea {
+  position: relative;
+}
+
+.outerFlexTwo {
+  margin-top: calc(var(--size-twenty) + 1vw);
+}
+
+.outerFlexTwo input[type="submit"] {
+  padding: calc(var(--size-two) + 1vw) calc(var(--size-twenty) + 1vw);
+  font-weight: 700;
+  font-size: calc(var(--size-ten) + 1vw);
+  font-family: 'Sen', 'Barlow', 'Exo 2', sans-serif;
+}
+
+.bottomLeftBoxOne,
+.bottomLeftBoxTwo,
+.topRightBoxOne,
+.topRightBoxTwo {
+  position: absolute;
+  border: var(--size-two) solid transparent;
+  border-radius: var(--size-ten);
+  width: calc(var(--size-fifty) + 2vw);
+  height: calc(var(--size-fifty) + 2vw);
+  z-index: -1;
+}
+
+.bottomLeftBoxOne,
+.bottomLeftBoxTwo {
+  bottom: 0;
+  left: 0;
+}
+
+.bottomLeftBoxOne {
+  transform: translate(-25%, 25%);
+}
+
+.bottomLeftBoxTwo {
+  transform: translate(-50%, 50%);
+}
+
+.topRightBoxOne,
+.topRightBoxTwo {
+  top: 0;
+  right: 0;
+}
+
+.topRightBoxOne {
+  transform: translate(25%, -25%);
+}
+
+.topRightBoxTwo {
+  transform: translate(50%, -50%);
+}
+
+ @media screen and (max-width: 600px) {
+  .outerFlexOne {
+    flex-wrap: wrap;
+  }
+  
+  .innerFlexTwo,
+  .innerFlexOne {
+    margin: 0;
+  }
+
+  .outerFlexTwo {
+    margin-top: 0;
+  }
+
+  .formFlexContainer .outerFlexTwo input {
+    margin-top: 100%;
+  }
+ }

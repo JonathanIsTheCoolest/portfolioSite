@@ -21,7 +21,15 @@ const ContextProvider = ({ children }) => {
     colorObject: JSON.parse(LOCAL_COLOR_OBJECT),
     setContextState: (name, value) => {
       setUserContext((prevState) => ({ ...prevState, [name]: value }))
-    }
+    },
+    toggleOffNavBar: () => {
+      setUserContext((prevState) => ({...prevState, isToggledOffNavBar: true}))
+      setTimeout(() => 
+        !userContext.isToggledOffNavBar ? 
+        setUserContext((prevState) => ({...prevState, isToggledNavBar: false, isToggledOffNavBar: false})) 
+        : null, 1000)
+      ;
+    } 
   };
   
   const [ userContext, setUserContext ] = useState(context);
@@ -60,6 +68,7 @@ export const ProviderContext = () => {
     introAnimationShouldRun: context.introAnimationShouldRun,
     colorObject: context.colorObject,
     setContextState: context.setContextState,
+    toggleOffNavBar: context.toggleOffNavBar,
   }
 } 
 

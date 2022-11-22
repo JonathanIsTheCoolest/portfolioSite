@@ -14,8 +14,9 @@
   cursor: pointer;
 }
 
-.flashLightMessageContainerExit,
+.flashLightMessageNone,
 .flashLightMessageContainer {
+  transition: var(--transition-one);
   box-sizing: border-box;
   cursor: default;
   position: absolute;
@@ -24,11 +25,14 @@
 }
 
 .flashLightMessageContainer {
-  animation: messageContainer 0.5s;
+  visibility: visible;
+  opacity: 1;
 }
 
-.flashLightMessageContainerExit {
-  animation: messageContainerExit 0.5s forwards;
+.flashLightMessageNone { 
+  opacity: 0;
+  visibility: hidden;
+  height: 0;
 }
 
 .flashLightMessage {
@@ -46,22 +50,4 @@
 	bottom: -1.5625rem;
 	border: var(--size-twenty) solid;
 	border-color: currentColor currentColor transparent transparent;
-}
-
-@keyframes messageContainer {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes messageContainerExit {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
 }

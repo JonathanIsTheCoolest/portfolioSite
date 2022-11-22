@@ -15,6 +15,11 @@ import logoLightCircle from './assets/logos/logoLightCircle.png';
 import logoLightSquare from './assets/logos/logoLightSquare.png';
 import logoLightPlain from './assets/logos/logoLightPlain.png';
 
+// Secrets
+export const EMAILJS_SERVICE = process.env.REACT_APP_EMAILJS_SERVICE;
+export const EMAILJS_TEMPLATE = process.env.REACT_APP_EMAILJS_TEMPLATE;
+export const EMAILJS_PUBLIC = process.env.REACT_APP_EMAILJS_PUBLIC;
+
 // Messages
 export const LIGHT_ON_MESSAGE = 'It\'s too dark, turn on the lights!';
 export const LIGHT_OFF_MESSAGE = 'It\'s too bright, turn off the lights!';
@@ -64,20 +69,44 @@ export const P = 'p';
 export const DIV = 'div';
 
 
-// libraries, framemworks, languages
+// libraries, frameworks, languages
 
 export const HTML = 'HTML';
 export const CSS = 'CSS';
 export const JAVASCRIPT = 'JavaScript';
+export const GIT = 'git';
+export const GIT_HUB = 'GitHub';
 export const REACT = 'React';
 export const NODE_JS = 'Node.js';
 export const EXPRESS = 'Express.js';
 export const MONGO_DB = 'MongoDB';
 
 export const LANGUAGE_ARRAY = [
-  HTML, CSS, JAVASCRIPT, REACT, NODE_JS, EXPRESS, MONGO_DB
+  HTML, CSS, JAVASCRIPT, REACT, NODE_JS, EXPRESS, MONGO_DB, GIT, GIT_HUB
 ];
 
 // Statements
 export const HOME_PAGE_STATEMENT = 
-  "Thank you for your interest in my work! I have experience building various kinds of websites with responsive design. I am open for freelance work and full-time employment";
+  'Thank you for your interest in my work! I have experience building various kinds of websites with responsive design. I am open for freelance work and full-time employment';
+
+export const ABOUT_PAGE_MESSAGE_ONE =
+  <>
+    I was born and raised in the San Francisco Bay Area and currently reside in Berkeley.
+    <br/><br/>
+    I started programming in 2020 when I decided to switch from a career in fine dining.
+    <br/><br/>
+    When I'm not coding, you can find me playing guitar or hanging out with my wife!
+    <br/><br/>
+    My programming related hobbies include stubbornly reading documentation and liking coding memes on LinkedIn.
+  </>
+
+export const ABOUT_PAGE_MESSAGE_TWO =
+  <>
+    LET'S MAKE
+    <br/><br/>
+    SOMETHING
+    <br/><br/>
+    SPECIAL
+    <br/><br/>
+    TOGETHER.
+  </>

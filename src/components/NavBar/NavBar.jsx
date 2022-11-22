@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom';
 
 const NavBar = ({ isSelected }) => {
   const [ isWindowTop, setIsWindowTop ] = useState(true);
-  const {colorObject, setContextState, isToggledNavBar, isToggledOffNavBar} = ProviderContext();
+  const {colorObject, setContextState, isToggledNavBar, isToggledOffNavBar, toggleOffNavBar} = ProviderContext();
   const {colorTwo, colorFour} = colorObject;
 
   const navBarObject = [
@@ -28,20 +28,9 @@ const NavBar = ({ isSelected }) => {
     setContextState(IS_TOGGLED_NAV_NAVBAR, true);
   }
 
-  const toggleOff = () => {
-    const toggle = () => {
-      setContextState(IS_TOGGLED_NAV_NAVBAR, false);
-      setContextState(IS_TOGGLED_OFF_NAV_NAVBAR, false);
-    }
-    setContextState(IS_TOGGLED_OFF_NAV_NAVBAR, true);
-    setTimeout(() => 
-        !isToggledOffNavBar ? toggle() : null
-      , 1000);
-  }
-
   const toggleNav = () => {
     isToggledNavBar ? 
-    toggleOff() :
+    toggleOffNavBar() :
     toggleOn();
   };
 
@@ -50,6 +39,7 @@ const NavBar = ({ isSelected }) => {
     <div
       key={`${item.text}${index}`}
       onClick={toggleNav}
+      className={styles.navOptions}
     >
       <StyledText 
         isSelected={isSelected}
@@ -66,10 +56,10 @@ const NavBar = ({ isSelected }) => {
       setIsWindowTop(true);
     }
   }
-  window.addEventListener('scroll', setNavbarColor)
+  window.addEventListener('scroll', setNavbarColor);
   return (
     <div className={styles.navBar} style={{backgroundColor: isWindowTop ? 'transparent' : colorFour}}>
-      <div onClick={toggleOff} className={styles.logoContainer}>
+      <div onClick={toggleOffNavBar} className={styles.logoContainer}>
         <Link className={styles.logo} style={{ color: colorTwo }} to={HOME_ADDRESS}>
           JLR
         </Link>

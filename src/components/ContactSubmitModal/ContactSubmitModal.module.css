@@ -1,0 +1,45 @@
+.modalContainer,
+.modalContainerHidden {
+  border-radius: var(--size-ten);
+  padding: calc(var(--size-ten) + 5vw);
+  transition: var(--transition-two);
+  position: fixed;
+  top: 100px;
+  right: 50px;
+  bottom: 50px;
+  left: 50px;
+}
+
+.modalContainer,
+.clientMessageContainer {
+  border: var(--size-two) solid;
+}
+
+.modalContainer {
+  visibility: visible;
+  opacity: 1;
+  z-index: 3000;
+}
+
+.modalContainerHidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.messageContainer {
+  position: relative;
+}
+
+.XMark {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.clientMessageContainer {
+  border-radius: var(--size-five);
+}
+
+.clientMessage {
+  padding: calc(var(--size-ten) + 1vw);
+}

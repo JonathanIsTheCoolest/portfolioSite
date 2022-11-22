@@ -11,3 +11,30 @@
 .topContentContainer {
   padding: calc(var(--size-fifty) * 2) calc(var(--size-forty) + 1vw);
 }
+
+.lowerContentContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: stretch;
+  padding: calc(var(--size-twenty) + 1vw);
+}
+
+.flexItems {
+  position: relative;
+  width: calc(300px + 10vw);
+  padding: calc(var(--size-twenty) + 1vw);
+  border: 1px solid transparent;
+  border-radius: var(--size-ten);
+  margin: calc(var(--size-twenty) + 1vw) 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 450px) {
+  .flexItems {
+    width: calc(150px + 10vw);
+  }
+}

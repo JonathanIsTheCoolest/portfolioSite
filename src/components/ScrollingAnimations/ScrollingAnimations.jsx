@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 
 import styles from './ScrollingAnimations.module.css';
 
-function ScrollingAnimations({ element, index }) {
+function ScrollingAnimations({ element, index, classes }) {
   const [isVisible, setVisible] = useState(true);
   const domRef = useRef();
   useEffect(() => {
@@ -15,7 +15,7 @@ function ScrollingAnimations({ element, index }) {
   }, []);
   return (
     <div
-      className={`${ styles.fadeInBottom} ${isVisible ? styles.isVisible : ''}`}
+      className={`${ styles.fadeInBottom} ${isVisible ? styles.isVisible : ''} ${classes}`}
       ref={domRef}
     >
       {element}

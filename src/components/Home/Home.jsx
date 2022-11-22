@@ -1,24 +1,45 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ProviderContext } from '../../App';
 import LoadInAnimation from '../LoadInAnimation/LoadInAnimation';
 import FlashLight from '../FlashLight/FlashLight';
 import NavBar from '../NavBar/NavBar';
 import ParallaxContainer from '../ParallaxContainer/ParallaxContainer';
 import StyledText from '../StyledText/StyledText';
-import { FIRST_NAME, LANGUAGE_ARRAY, HOME_PAGE_STATEMENT } from '../../constants';
+import { FIRST_NAME, HOME_PAGE_STATEMENT, LANGUAGE_ARRAY } from '../../constants';
 import { buildTextPropsObject as buildProps } from '../../functions/generalFunctions';
+
+import TagCloud from 'TagCloud';
 
 import ScrollingAnimations from '../ScrollingAnimations/ScrollingAnimations';
 
 import myPhoto from '../../assets/myPictures/jonathanHome.jpg';
 
-import styles from '../Home/Home.module.css'
+import styles from '../Home/Home.module.css';
 
 const Home = ({ isSelected }) => {
-  const {introAnimationShouldRun, colorObject} = ProviderContext();
+  const {introAnimationShouldRun, colorObject, toggleOffNavBar, isToggledNavBar, isToggledOffNavBar} = ProviderContext();
   const {colorOne, colorTwo, colorThree, colorFour} = colorObject;
 
   const [isLoadIn, setIsLoadIn] = useState(true);
+
+  let ignore = useRef(false);
+
+  let windowPxAdd = window.innerWidth / 25;
+
+  useEffect (() => {
+    let tagConstraints = {
+      radius: 100 + windowPxAdd,
+      maxSpeed: 'normal',
+      initSpeed: 'normal',
+      direction: 135,
+      keep: true
+    }
+    
+    if (!ignore.current) {
+      TagCloud('.tagCloudContent', LANGUAGE_ARRAY, tagConstraints);
+    }
+    return () => ignore.current = true;
+  }, [windowPxAdd])
 
   const parallaxContent = 
     <div>
@@ -31,32 +52,35 @@ const Home = ({ isSelected }) => {
     </div>
 
   // Bottom Flex Container
-  const inlineFloatingBoxStyles = {
-    backgroundColor: 'transparent',
-    borderColor: colorTwo,
-    color: colorTwo,
-  }
 
-  const inlineFlexItemStyles = {
-    backgroundColor: colorThree,
-    borderColor: colorTwo,
-    color: colorTwo,
-  }
+const inlineFloatingBoxStyles = {
+  backgroundColor: 'transparent',
+  borderColor: colorTwo,
+  color: colorTwo,
+}
+
+const inlineFlexItemStyles = {
+  backgroundColor: colorThree,
+  borderColor: 'transparent',
+  color: colorTwo,
+}
 
   const leftAbsoluteClasses = [
-    styles.topLeftBox, styles.bottomLeftBox, styles.bottomRightBox
+    styles.topLeftBoxOne, styles.topLeftBoxTwo,
+    styles.bottomRightBoxOne, styles.bottomRightBoxTwo
   ]
 
   const rightAbsoluteClasses = [
-    styles.topLeftBox, styles.bottomRightBox, styles.topRightBox
+    styles.topLeftBoxOne, styles.topLeftBoxTwo,
+    styles.bottomRightBoxOne, styles.bottomRightBoxTwo
   ]
 
   const makeBoxDiv = (key, classes) => {
-    return <div key={key} style={inlineFloatingBoxStyles} className={classes}></div>
-  }
+  return <div key={key} style={inlineFloatingBoxStyles} className={classes}></div>
+}
 
   const flexItemOne = 
-    <div style={inlineFlexItemStyles} className={`${styles.resumeContainer} ${styles.homeFlexItems}`}>
+    <div style={inlineFlexItemStyles} className={`${styles.resumeContainer} flexItems`}>
       <div>
         {HOME_PAGE_STATEMENT} 
       </div>
@@ -69,18 +93,14 @@ const Home = ({ isSelected }) => {
     </div>;
   
   const flexItemTwo = 
-    <div style={inlineFlexItemStyles} className={`${styles.languageContainer} ${styles.homeFlexItems}`}>
-      {
-        LANGUAGE_ARRAY.map((item, index) => (
-          <div key={`${item.replace('.', '')}${index}`} className={`${styles[item.replace('.', '')]} ${styles.languageItems}`}>{item}</div>
-        ))
-      }
+    <div style={inlineFlexItemStyles} className={`${styles.languageContainer} flexItems`}>
       {
         rightAbsoluteClasses.map((item, index) => (
           makeBoxDiv((`${item.replace('styles.', '')}${index}`), item)
         ))
       }
-    </div>
+      <div className="tagCloudContent"></div>
+    </div>;
 
   const flexChildrenArray = [
     { name: 'flexItemOne', element: flexItemOne },
@@ -88,12 +108,12 @@ const Home = ({ isSelected }) => {
   ];
 
   return (
-    <div className="container" style={{backgroundColor: colorOne}}>
+    <div className="container" style={{backgroundColor: colorOne}} onClick={isToggledNavBar && !isToggledOffNavBar ? toggleOffNavBar : null}>
       {isLoadIn && introAnimationShouldRun ? <LoadInAnimation setIsLoadIn={setIsLoadIn}/> : null}
       <FlashLight/>
       <NavBar isSelected={isSelected}/>
       <ParallaxContainer style={{ color: colorTwo }} image={myPhoto} content={parallaxContent}/>
-      <section className={styles.homeContentContainer}>
+      <section className={`lowerContentContainer`}>
         {
           flexChildrenArray.map((item, index) => (
             <ScrollingAnimations
