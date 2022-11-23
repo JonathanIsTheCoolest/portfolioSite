@@ -15,7 +15,7 @@ import myPhoto from '../../../assets/myPictures/jonathanHome.jpg';
 import styles from '../Home/Home.module.css';
 
 const Home = ({ isSelected }) => {
-  const {introAnimationShouldRun, colorObject, toggleOffNavBar, isToggledNavBar, isToggledOffNavBar} = ProviderContext();
+  const {introAnimationShouldRun, colorObject, toggleOffNavBar} = ProviderContext();
   const {colorOne, colorTwo, colorThree, colorFour} = colorObject;
 
   let ignore = useRef(false);
@@ -104,7 +104,7 @@ const inlineFlexItemStyles = {
   ];
 
   return (
-    <div className="container" style={{backgroundColor: colorOne}} onClick={isToggledNavBar && !isToggledOffNavBar ? toggleOffNavBar : null}>
+    <div className="container" style={{backgroundColor: colorOne}} onClick={toggleOffNavBar}>
       {introAnimationShouldRun ? <LoadInAnimation/> : null}
       <FlashLight/>
       <NavBar isSelected={isSelected}/>

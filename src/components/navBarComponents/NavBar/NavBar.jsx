@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ProviderContext} from '../../../App';
 import { buildTextPropsObject as buildProps } from '../../../functions/generalFunctions';
-import { HOME_ADDRESS, ABOUT_ADDRESS, CONTACT_ADDRESS, HOME, ABOUT, CONTACT, IS_TOGGLED_NAV_NAVBAR, IS_TOGGLED_OFF_NAV_NAVBAR } from '../../../constants';
+import { HOME_ADDRESS, ABOUT_ADDRESS, CONTACT_ADDRESS, HOME, ABOUT, CONTACT } from '../../../constants';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom';
 
 const NavBar = ({ isSelected }) => {
   const [ isWindowTop, setIsWindowTop ] = useState(true);
-  const {colorObject, setContextState, isToggledNavBar, isToggledOffNavBar, toggleOffNavBar} = ProviderContext();
+  const {colorObject, setIsToggledNavBar, setIsToggledOffNavBar, isToggledNavBar, isToggledOffNavBar, toggleOffNavBar} = ProviderContext();
   const {colorTwo, colorFour} = colorObject;
 
   const navBarObject = [
@@ -24,8 +24,8 @@ const NavBar = ({ isSelected }) => {
 
 
   const toggleOn = () => {
-    setContextState(IS_TOGGLED_OFF_NAV_NAVBAR, false);
-    setContextState(IS_TOGGLED_NAV_NAVBAR, true);
+    setIsToggledOffNavBar(false);
+    setIsToggledNavBar(true);
   }
 
   const toggleNav = () => {

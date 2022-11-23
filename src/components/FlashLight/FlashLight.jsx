@@ -8,7 +8,7 @@ import {
 import styles from '../FlashLight/FlashLight.module.css';
 
 const FlashLight = () => {
-  const {colorObject, setContextState} = ProviderContext();
+  const {colorObject, setColorObject} = ProviderContext();
   const { name, flashLightIcon, message, colorTwo, colorFive } = colorObject;
   const [ isHovered, setIsHovered ] = useState(false);
 
@@ -18,10 +18,7 @@ const FlashLight = () => {
     } else {
       localStorage.setItem(COLOR_OBJECT, JSON.stringify(LIGHT))
     }
-    setContextState(
-      COLOR_OBJECT, 
-      name === LIGHT.name ? DARK : LIGHT
-    );
+    setColorObject(name === LIGHT.name ? DARK : LIGHT)
   };
 
   return (

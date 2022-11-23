@@ -15,7 +15,7 @@ import styles from './About.module.css';
 import myPhoto from '../../../assets/myPictures/jonathanAbout.png';
 
 const About = ({ isSelected }) => {
-  const { colorObject, toggleOffNavBar, isToggledNavBar, isToggledOffNavBar, introAnimationShouldRun } = ProviderContext();
+  const { colorObject, toggleOffNavBar, introAnimationShouldRun } = ProviderContext();
   const { colorOne, colorTwo, colorThree } = colorObject;
 
   const inlineFloatingBoxStyles = {
@@ -72,7 +72,7 @@ const About = ({ isSelected }) => {
     { name: 'flexItemThree', element: flexItemThree, classes: styles.gridThree },
   ];
   return (
-    <div className={`container ${styles.aboutContainer}`} style={{backgroundColor: colorOne}} onClick={isToggledNavBar && !isToggledOffNavBar ? toggleOffNavBar : null}>
+    <div className={`container ${styles.aboutContainer}`} style={{backgroundColor: colorOne}} onClick={toggleOffNavBar}>
       {introAnimationShouldRun ? <LoadInAnimation/> : null}
       <FlashLight/>
       <NavBar isSelected={isSelected}/>

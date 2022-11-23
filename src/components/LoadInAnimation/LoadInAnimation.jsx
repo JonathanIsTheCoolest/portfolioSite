@@ -1,7 +1,6 @@
 import React from 'react';
 import { ProviderContext } from '../../App';
 import {
-   INTRO_ANIMATION_SHOULD_RUN as SHOULD_RUN,
    HTML, CSS, JAVASCRIPT, REACT, NODE_JS, EXPRESS, MONGO_DB
 } from '../../constants';
 
@@ -18,12 +17,12 @@ const languageList = [
 ];
 
 const LoadInAnimation = () => {
-  const {colorObject, setContextState} = ProviderContext();
+  const {colorObject, setIntroAnimationShouldRun} = ProviderContext();
   const {colorOne, colorTwo} = colorObject;
 
   const endAnimation = () => {
     setTimeout(
-      setContextState(SHOULD_RUN, false)
+      setIntroAnimationShouldRun(false)
     , 1000)
   }
 

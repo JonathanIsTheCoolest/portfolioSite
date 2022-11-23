@@ -16,7 +16,7 @@ import {
   CONTACT_ADDRESS,
 } from "./constants";
 
-const colorObject = () => {
+const getColorObject = () => {
   try {
     const colorObject = localStorage.getItem(COLOR_OBJECT);
     return colorObject ? JSON.parse(colorObject) : LIGHT_THEME_COLOR_OBJECT;
@@ -28,37 +28,38 @@ const colorObject = () => {
 
 export const UserContext = createContext();
 const ContextProvider = ({ children }) => {
-  const context = {
-    isToggledNavBar: false,
-    isToggledOffNavBar: false,
-    introAnimationShouldRun: true,
-    colorObject: colorObject(),
-    setContextState: (name, value) => {
-      setUserContext((prevState) => ({ ...prevState, [name]: value }));
-    },
-    toggleOffNavBar: () => {
-      setUserContext((prevState) => ({
-        ...prevState,
-        isToggledOffNavBar: true,
-      }));
-      setTimeout(
-        () =>
-          !userContext.isToggledOffNavBar
-            ? setUserContext((prevState) => ({
-                ...prevState,
-                isToggledNavBar: false,
-                isToggledOffNavBar: false,
-              }))
-            : null,
-        1000
-      );
-    },
+  const [isToggledNavBar, setIsToggledNavBar] = useState(false);
+  const [isToggledOffNavBar, setIsToggledOffNavBar] = useState(false);
+  const [introAnimationShouldRun, setIntroAnimationShouldRun] = useState(true);
+  const [colorObject, setColorObject] = useState(getColorObject());
+  const toggleOffNavBar = () => {
+    if (isToggledNavBar && !isToggledOffNavBar) {
+      setIsToggledOffNavBar(true);
+      setTimeout(() => {
+        if (isToggledNavBar) {
+          setIsToggledNavBar(false);
+          setIsToggledOffNavBar(false);
+        }
+      }, 1000);
+    }
   };
 
-  const [userContext, setUserContext] = useState(context);
-
   return (
-    <UserContext.Provider value={userContext}>{children}</UserContext.Provider>
+    <UserContext.Provider
+      value={{
+        isToggledNavBar,
+        setIsToggledNavBar,
+        isToggledOffNavBar,
+        setIsToggledOffNavBar,
+        introAnimationShouldRun,
+        setIntroAnimationShouldRun,
+        colorObject,
+        setColorObject,
+        toggleOffNavBar,
+      }}
+    >
+      {children}
+    </UserContext.Provider>
   );
 };
 
@@ -86,10 +87,13 @@ export const ProviderContext = () => {
   }
   return {
     isToggledNavBar: context.isToggledNavBar,
+    setIsToggledNavBar: context.setIsToggledNavBar,
     isToggledOffNavBar: context.isToggledOffNavBar,
+    setIsToggledOffNavBar: context.setIsToggledOffNavBar,
     introAnimationShouldRun: context.introAnimationShouldRun,
+    setIntroAnimationShouldRun: context.setIntroAnimationShouldRun,
     colorObject: context.colorObject,
-    setContextState: context.setContextState,
+    setColorObject: context.setColorObject,
     toggleOffNavBar: context.toggleOffNavBar,
   };
 };

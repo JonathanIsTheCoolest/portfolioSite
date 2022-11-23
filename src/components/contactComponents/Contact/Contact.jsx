@@ -19,7 +19,7 @@ const INIT_STATE = {
   message: '',
 }
 const Contact = ({ isSelected }) => {
-  const { colorObject, toggleOffNavBar, isToggledNavBar, isToggledOffNavBar, introAnimationShouldRun } = ProviderContext();
+  const { colorObject, toggleOffNavBar, introAnimationShouldRun } = ProviderContext();
   const { colorOne, colorTwo, colorThree, colorFour } = colorObject;
   const [ formContent, setFormContent ] = useState(INIT_STATE);
   const [ submissionModal, setSubmissionModal ] = useState(false);
@@ -46,11 +46,10 @@ const Contact = ({ isSelected }) => {
   };
 
   const onClickContactContainer = () => {
-    if (isToggledNavBar && !isToggledOffNavBar) {
-      toggleOffNavBar();
-    }
+    toggleOffNavBar();
     if (submissionModal) {
       setSubmissionModal(false);
+      setFormContent(INIT_STATE);
     }
   }
 
@@ -65,7 +64,7 @@ const Contact = ({ isSelected }) => {
 
   const leftContentArray = [
     {name: 'name', type: 'text', value: name, func: onChange, classes: `${styles.name} ${styles.nameAndEmail}`},
-    {name: 'email', type: 'email', value: email, func: onChange, classes: `${styles.email} ${styles.nameAndEmail}`},
+    {name: 'email', type: 'text', value: email, func: onChange, classes: `${styles.email} ${styles.nameAndEmail}`},
   ];
 
   const leftFlexContent = 
@@ -134,7 +133,12 @@ const Contact = ({ isSelected }) => {
           classes={styles.scrollContainerWidth}
         />
       </section>
-      <ContactSubmitModal toggleOff={() => {setSubmissionModal(false); setFormContent(INIT_STATE);}} submissionModal={submissionModal} name={name} message={message}/>
+      <ContactSubmitModal 
+        toggleOff={() => {setSubmissionModal(false); setFormContent(INIT_STATE);}} 
+        submissionModal={submissionModal} 
+        name={name} 
+        message={message}
+      />
     </div>
   )
 }
