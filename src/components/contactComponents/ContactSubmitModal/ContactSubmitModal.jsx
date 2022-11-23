@@ -1,5 +1,5 @@
 import React from "react";
-import { ProviderContext } from '../../App';
+import { ProviderContext } from '../../../App';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';

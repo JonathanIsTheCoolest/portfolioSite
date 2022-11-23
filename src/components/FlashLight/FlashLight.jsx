@@ -40,7 +40,10 @@ const FlashLight = () => {
           <div
            className={ isHovered ? styles.flashLightMessageContainer : styles.flashLightMessageNone }
           >
-            <div style={{ borderColor: 'transparent', color: colorTwo, backgroundColor: colorTwo }} className={`${styles.flashLightMessage} ${styles.triRight} ${styles.bottomRightIn}`}>
+            <div 
+              style={{ borderColor: 'transparent', color: colorTwo, backgroundColor: colorTwo }} 
+              className={`${styles.flashLightMessage} ${styles.triRight} ${styles.bottomRightIn}`}
+            >
               <div style={{  color: colorFive }}>
                 {message}
               </div>

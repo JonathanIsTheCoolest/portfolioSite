@@ -1,17 +1,17 @@
 import React from 'react';
-import { ProviderContext } from '../../App';
-import FlashLight from '../FlashLight/FlashLight';
-import NavBar from '../NavBar/NavBar';
-import ParallaxContainer from '../ParallaxContainer/ParallaxContainer';
-import ScrollingAnimations from '../ScrollingAnimations/ScrollingAnimations';
-import { ABOUT_PAGE_MESSAGE_ONE, ABOUT_PAGE_MESSAGE_TWO } from '../../constants';
+import { ProviderContext } from '../../../App';
+import FlashLight from '../../FlashLight/FlashLight';
+import NavBar from '../../navBarComponents/NavBar/NavBar';
+import ParallaxContainer from '../../ParallaxContainer/ParallaxContainer';
+import ScrollingAnimations from '../../ScrollingAnimations/ScrollingAnimations';
+import { ABOUT_PAGE_MESSAGE_ONE, ABOUT_PAGE_MESSAGE_TWO } from '../../../constants';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithubAlt, faLinkedin, faMedium } from '@fortawesome/free-brands-svg-icons'
 
 import styles from './About.module.css';
 
-import myPhoto from '../../assets/myPictures/jonathanAbout.png';
+import myPhoto from '../../../assets/myPictures/jonathanAbout.png';
 
 const About = ({ isSelected }) => {
   const { colorObject, toggleOffNavBar, isToggledNavBar, isToggledOffNavBar } = ProviderContext();

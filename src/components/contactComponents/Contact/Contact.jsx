@@ -1,16 +1,16 @@
 import React, {useState} from 'react';
-import { ProviderContext } from '../../App';
-import FlashLight from '../FlashLight/FlashLight';
-import NavBar from '../NavBar/NavBar';
-import ParallaxContainer from '../ParallaxContainer/ParallaxContainer';
-import ScrollingAnimations from '../ScrollingAnimations/ScrollingAnimations';
+import { ProviderContext } from '../../../App';
+import FlashLight from '../../FlashLight/FlashLight';
+import NavBar from '../../navBarComponents/NavBar/NavBar';
+import ParallaxContainer from '../../ParallaxContainer/ParallaxContainer';
+import ScrollingAnimations from '../../ScrollingAnimations/ScrollingAnimations';
 import ContactSubmitModal from '../ContactSubmitModal/ContactSubmitModal';
 
-import { postEmail } from '../../functions/emailFunctions';
+import { postEmail } from '../../../functions/emailFunctions';
 
 import styles from './Contact.module.css';
 
-import myPhoto from '../../assets/myPictures/jonathanContact.png';
+import myPhoto from '../../../assets/myPictures/jonathanContact.png';
 
 const INIT_STATE = {
   name: '',
@@ -83,8 +83,7 @@ const Contact = ({ isSelected }) => {
           placeholder={item.name}
         />
       </label>
-    ))
-
+    ));
 
   const rightFlexContent = 
     <label className={styles.rightFlexContent} htmlFor="message">
@@ -122,7 +121,6 @@ const Contact = ({ isSelected }) => {
     <div 
       className={`container ${styles.contactContainer}`} 
       style={{ backgroundColor: colorOne }} 
-      // onClick={isToggledNavBar && !isToggledOffNavBar ? toggleOffNavBar : null}
       onClick={onClickContactContainer}
     >
       <FlashLight/>

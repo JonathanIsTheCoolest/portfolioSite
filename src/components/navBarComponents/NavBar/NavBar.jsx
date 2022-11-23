@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { ProviderContext} from '../../App';
-import { buildTextPropsObject as buildProps } from '../../functions/generalFunctions';
-import { HOME_ADDRESS, ABOUT_ADDRESS, CONTACT_ADDRESS, HOME, ABOUT, LINK, CONTACT, IS_TOGGLED_NAV_NAVBAR, IS_TOGGLED_OFF_NAV_NAVBAR } from '../../constants';
+import { ProviderContext} from '../../../App';
+import { buildTextPropsObject as buildProps } from '../../../functions/generalFunctions';
+import { HOME_ADDRESS, ABOUT_ADDRESS, CONTACT_ADDRESS, HOME, ABOUT, CONTACT, IS_TOGGLED_NAV_NAVBAR, IS_TOGGLED_OFF_NAV_NAVBAR } from '../../../constants';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
-import StyledText from '../StyledText/StyledText';
+import StyledNavText from '../StyledNavText/StyledNavText';
 
 import styles from '../NavBar/NavBar.module.css';
 import { Link } from 'react-router-dom';
@@ -17,9 +17,9 @@ const NavBar = ({ isSelected }) => {
   const {colorTwo, colorFour} = colorObject;
 
   const navBarObject = [
-    { type: LINK, text: HOME, className: styles.home, route: HOME_ADDRESS },
-    { type: LINK, text: ABOUT, className: styles.about, route: ABOUT_ADDRESS },
-    { type: LINK, text: CONTACT, className: styles.contact, route: CONTACT_ADDRESS },
+    { type: 'Link', text: HOME, className: styles.home, route: HOME_ADDRESS },
+    { type: 'Link', text: ABOUT, className: styles.about, route: ABOUT_ADDRESS },
+    { type: 'Link', text: CONTACT, className: styles.contact, route: CONTACT_ADDRESS },
   ];
 
 
@@ -41,9 +41,9 @@ const NavBar = ({ isSelected }) => {
       onClick={toggleNav}
       className={styles.navOptions}
     >
-      <StyledText 
+      <StyledNavText 
         isSelected={isSelected}
-        props={buildProps(item.type, item.text, item.className, item.route)}
+        props={buildProps({type: item.type, text: item.text, className: item.className, route: item.route})}
       />
     </div>
   ));

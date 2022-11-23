@@ -1,26 +1,33 @@
-export const buildColorThemeObject = (name, cOne, cTwo, cThree, cFour, cFive, flashLightIcon, message, logoCircle, logoSquare, logoPlain) => {
+export const buildColorThemeObject = ({
+  name,
+  colorOne,
+  colorTwo,
+  colorThree,
+  colorFour,
+  colorFive,
+  flashLightIcon,
+  message,
+}) => {
   const colorObject = {
-    name: name,
-    colorOne: cOne,
-    colorTwo: cTwo,
-    colorThree: cThree,
-    colorFour: cFour,
-    colorFive: cFive,
+    name,
+    colorOne,
+    colorTwo,
+    colorThree,
+    colorFour,
+    colorFive,
     flashLightIcon: flashLightIcon,
     message: message,
-    logoCircle: logoCircle,
-    logoSquare: logoSquare,
-    logoPlain: logoPlain
-  }
+  };
   return colorObject;
-}
+};
 
-export const buildTextPropsObject = (type, text, className, route) => {
+// Styled Nav Text Props
+export const buildTextPropsObject = ({ type, text, className, route }) => {
   const textPropsObject = {
-    type: type,
-    text: text,
-    className: className,
-    route: route,
-  }
+    type,
+    text,
+    className,
+    route,
+  };
   return textPropsObject;
-}
+};

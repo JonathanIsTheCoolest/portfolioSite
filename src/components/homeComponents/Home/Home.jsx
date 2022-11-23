@@ -1,18 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ProviderContext } from '../../App';
-import LoadInAnimation from '../LoadInAnimation/LoadInAnimation';
-import FlashLight from '../FlashLight/FlashLight';
-import NavBar from '../NavBar/NavBar';
-import ParallaxContainer from '../ParallaxContainer/ParallaxContainer';
-import StyledText from '../StyledText/StyledText';
-import { FIRST_NAME, HOME_PAGE_STATEMENT, LANGUAGE_ARRAY } from '../../constants';
-import { buildTextPropsObject as buildProps } from '../../functions/generalFunctions';
+import { ProviderContext } from '../../../App';
+import LoadInAnimation from '../../LoadInAnimation/LoadInAnimation';
+import FlashLight from '../../FlashLight/FlashLight';
+import NavBar from '../../navBarComponents/NavBar/NavBar';
+import ParallaxContainer from '../../ParallaxContainer/ParallaxContainer';
+import { FIRST_NAME, HOME_PAGE_STATEMENT, LANGUAGE_ARRAY } from '../../../constants';
 
 import TagCloud from 'TagCloud';
 
-import ScrollingAnimations from '../ScrollingAnimations/ScrollingAnimations';
+import ScrollingAnimations from '../../ScrollingAnimations/ScrollingAnimations';
 
-import myPhoto from '../../assets/myPictures/jonathanHome.jpg';
+import myPhoto from '../../../assets/myPictures/jonathanHome.jpg';
 
 import styles from '../Home/Home.module.css';
 
@@ -42,13 +40,13 @@ const Home = ({ isSelected }) => {
   }, [windowPxAdd])
 
   const parallaxContent = 
-    <div>
-      <div className={styles.parallaxMessageContainer}>
-        <StyledText props={buildProps('div', 'Hello,')}/>
-        <StyledText props={buildProps('div', `I'm ${FIRST_NAME}`)}/>
+    <div className={styles.parallaxMessageContainer} style={{ color: colorTwo }}>
+      <div className={styles.parallaxLargeTextContainer}>
+        <div>Hello</div>
+        <div>I'm {FIRST_NAME}</div>
       </div>
-      <StyledText props={buildProps('h1', 'WEB DEVELOPER')}/>
-      <StyledText props={buildProps('h2', 'specialized in React')}/>
+      <h1>WEB DEVELOPER</h1>
+      <h2>specialized in React</h2>
     </div>
 
   // Bottom Flex Container
