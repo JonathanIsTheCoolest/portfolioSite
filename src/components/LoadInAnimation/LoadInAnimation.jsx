@@ -17,13 +17,12 @@ const languageList = [
   {language: MONGO_DB, class: styles.mongoDB}
 ];
 
-const LoadInAnimation = ({ setIsLoadIn }) => {
+const LoadInAnimation = () => {
   const {colorObject, setContextState} = ProviderContext();
   const {colorOne, colorTwo} = colorObject;
 
   const endAnimation = () => {
     setTimeout(
-      setIsLoadIn(false), 
       setContextState(SHOULD_RUN, false)
     , 1000)
   }

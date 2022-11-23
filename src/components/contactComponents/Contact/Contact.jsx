@@ -4,6 +4,7 @@ import FlashLight from '../../FlashLight/FlashLight';
 import NavBar from '../../navBarComponents/NavBar/NavBar';
 import ParallaxContainer from '../../ParallaxContainer/ParallaxContainer';
 import ScrollingAnimations from '../../ScrollingAnimations/ScrollingAnimations';
+import LoadInAnimation from '../../LoadInAnimation/LoadInAnimation';
 import ContactSubmitModal from '../ContactSubmitModal/ContactSubmitModal';
 
 import { postEmail } from '../../../functions/emailFunctions';
@@ -18,7 +19,7 @@ const INIT_STATE = {
   message: '',
 }
 const Contact = ({ isSelected }) => {
-  const { colorObject, toggleOffNavBar, isToggledNavBar, isToggledOffNavBar } = ProviderContext();
+  const { colorObject, toggleOffNavBar, isToggledNavBar, isToggledOffNavBar, introAnimationShouldRun } = ProviderContext();
   const { colorOne, colorTwo, colorThree, colorFour } = colorObject;
   const [ formContent, setFormContent ] = useState(INIT_STATE);
   const [ submissionModal, setSubmissionModal ] = useState(false);
@@ -123,6 +124,7 @@ const Contact = ({ isSelected }) => {
       style={{ backgroundColor: colorOne }} 
       onClick={onClickContactContainer}
     >
+      {introAnimationShouldRun ? <LoadInAnimation/> : null}
       <FlashLight/>
       <NavBar isSelected={isSelected}/>
       <ParallaxContainer image={myPhoto}/>

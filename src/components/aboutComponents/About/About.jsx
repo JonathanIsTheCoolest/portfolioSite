@@ -4,6 +4,7 @@ import FlashLight from '../../FlashLight/FlashLight';
 import NavBar from '../../navBarComponents/NavBar/NavBar';
 import ParallaxContainer from '../../ParallaxContainer/ParallaxContainer';
 import ScrollingAnimations from '../../ScrollingAnimations/ScrollingAnimations';
+import LoadInAnimation from '../../LoadInAnimation/LoadInAnimation';
 import { ABOUT_PAGE_MESSAGE_ONE, ABOUT_PAGE_MESSAGE_TWO } from '../../../constants';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -14,7 +15,7 @@ import styles from './About.module.css';
 import myPhoto from '../../../assets/myPictures/jonathanAbout.png';
 
 const About = ({ isSelected }) => {
-  const { colorObject, toggleOffNavBar, isToggledNavBar, isToggledOffNavBar } = ProviderContext();
+  const { colorObject, toggleOffNavBar, isToggledNavBar, isToggledOffNavBar, introAnimationShouldRun } = ProviderContext();
   const { colorOne, colorTwo, colorThree } = colorObject;
 
   const inlineFloatingBoxStyles = {
@@ -72,6 +73,7 @@ const About = ({ isSelected }) => {
   ];
   return (
     <div className={`container ${styles.aboutContainer}`} style={{backgroundColor: colorOne}} onClick={isToggledNavBar && !isToggledOffNavBar ? toggleOffNavBar : null}>
+      {introAnimationShouldRun ? <LoadInAnimation/> : null}
       <FlashLight/>
       <NavBar isSelected={isSelected}/>
       <ParallaxContainer image={myPhoto}/>

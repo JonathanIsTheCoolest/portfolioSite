@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { ProviderContext } from '../../../App';
 import LoadInAnimation from '../../LoadInAnimation/LoadInAnimation';
 import FlashLight from '../../FlashLight/FlashLight';
@@ -17,8 +17,6 @@ import styles from '../Home/Home.module.css';
 const Home = ({ isSelected }) => {
   const {introAnimationShouldRun, colorObject, toggleOffNavBar, isToggledNavBar, isToggledOffNavBar} = ProviderContext();
   const {colorOne, colorTwo, colorThree, colorFour} = colorObject;
-
-  const [isLoadIn, setIsLoadIn] = useState(true);
 
   let ignore = useRef(false);
 
@@ -107,7 +105,7 @@ const inlineFlexItemStyles = {
 
   return (
     <div className="container" style={{backgroundColor: colorOne}} onClick={isToggledNavBar && !isToggledOffNavBar ? toggleOffNavBar : null}>
-      {isLoadIn && introAnimationShouldRun ? <LoadInAnimation setIsLoadIn={setIsLoadIn}/> : null}
+      {introAnimationShouldRun ? <LoadInAnimation/> : null}
       <FlashLight/>
       <NavBar isSelected={isSelected}/>
       <ParallaxContainer style={{ color: colorTwo }} image={myPhoto} content={parallaxContent}/>
