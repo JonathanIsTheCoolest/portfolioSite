@@ -15,7 +15,6 @@ export const LIGHT_OFF_MESSAGE = "It's too bright, turn off the lights!";
 
 // Values
 export const COLOR_OBJECT = "colorObject";
-export const LOCAL_STORAGE_COLOR_OBJECT = localStorage.getItem(COLOR_OBJECT);
 
 export const DARK_THEME_COLOR_OBJECT = buildColorThemeObject({
   name: "dark",
@@ -38,9 +37,6 @@ export const LIGHT_THEME_COLOR_OBJECT = buildColorThemeObject({
   flashLightIcon: lightModeFlashLight,
   message: LIGHT_OFF_MESSAGE,
 });
-
-export const LOCAL_COLOR_OBJECT =
-  LOCAL_STORAGE_COLOR_OBJECT || JSON.stringify(LIGHT_THEME_COLOR_OBJECT);
 
 export const INTRO_ANIMATION_SHOULD_RUN = "introAnimationShouldRun";
 export const IS_TOGGLED_NAV_NAVBAR = "isToggledNavBar";

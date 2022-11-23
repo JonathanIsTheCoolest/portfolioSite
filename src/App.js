@@ -6,7 +6,8 @@ import Contact from "./components/contactComponents/Contact/Contact";
 import "./App.css";
 
 import {
-  LOCAL_COLOR_OBJECT,
+  COLOR_OBJECT,
+  LIGHT_THEME_COLOR_OBJECT,
   HOME,
   ABOUT,
   CONTACT,
@@ -15,13 +16,23 @@ import {
   CONTACT_ADDRESS,
 } from "./constants";
 
+const colorObject = () => {
+  try {
+    const colorObject = localStorage.getItem(COLOR_OBJECT);
+    return colorObject ? JSON.parse(colorObject) : LIGHT_THEME_COLOR_OBJECT;
+  } catch (error) {
+    console.error(`Something went wrong: ${error}`);
+    return LIGHT_THEME_COLOR_OBJECT;
+  }
+};
+
 export const UserContext = createContext();
 const ContextProvider = ({ children }) => {
   const context = {
     isToggledNavBar: false,
     isToggledOffNavBar: false,
     introAnimationShouldRun: true,
-    colorObject: JSON.parse(LOCAL_COLOR_OBJECT),
+    colorObject: colorObject(),
     setContextState: (name, value) => {
       setUserContext((prevState) => ({ ...prevState, [name]: value }));
     },
@@ -73,7 +84,6 @@ export const ProviderContext = () => {
   if (context === undefined) {
     throw new Error("Provider context undefined");
   }
-  // return context
   return {
     isToggledNavBar: context.isToggledNavBar,
     isToggledOffNavBar: context.isToggledOffNavBar,
