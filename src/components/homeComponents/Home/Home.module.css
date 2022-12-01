@@ -6,6 +6,7 @@ input[type="button"] {
   margin-top: calc(var(--size-ten) + 1vw);
   padding: var(--size-two) var(--size-ten);
   font-size: calc(var(--size-five) + 1vw);
+  width: auto;
 } 
 
 .topLeftBoxOne,

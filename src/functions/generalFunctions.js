@@ -31,3 +31,13 @@ export const buildTextPropsObject = ({ type, text, className, route }) => {
   };
   return textPropsObject;
 };
+
+// Make name to title
+export const makeNameIntoTitle = (name) => {
+  const titleName = name[0]
+    .toUpperCase()
+    .concat(name.slice(1, name.length))
+    .replace(/([A-Z])/g, " $1")
+    .trim();
+  return titleName;
+};

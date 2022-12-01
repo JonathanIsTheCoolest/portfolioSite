@@ -4,6 +4,7 @@ import LoadInAnimation from '../../LoadInAnimation/LoadInAnimation';
 import FlashLight from '../../FlashLight/FlashLight';
 import NavBar from '../../navBarComponents/NavBar/NavBar';
 import ParallaxContainer from '../../ParallaxContainer/ParallaxContainer';
+import Footer from '../../footerComponents/Footer/Footer';
 import { FIRST_NAME, HOME_PAGE_STATEMENT, LANGUAGE_ARRAY } from '../../../constants';
 
 import TagCloud from 'TagCloud';
@@ -80,7 +81,9 @@ const inlineFlexItemStyles = {
       <div>
         {HOME_PAGE_STATEMENT} 
       </div>
-      <input style={{ color: colorTwo, backgroundColor: colorFour }} type="button" value="<DownloadResume/>"/>
+      <a href={myPhoto} download="Jonathans Resume">
+        <input style={{ color: colorTwo, backgroundColor: colorFour }} type="button" value="<DownloadResume/>"/>
+      </a>
       {
         leftAbsoluteClasses.map((item, index) => (
           makeBoxDiv((`${item.replace('styles.', '')}${index}`), item)
@@ -120,6 +123,7 @@ const inlineFlexItemStyles = {
           ))
         }
       </section>
+      <Footer/>
     </div>
   )
 }

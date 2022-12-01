@@ -6,8 +6,12 @@ import ParallaxContainer from '../../ParallaxContainer/ParallaxContainer';
 import ScrollingAnimations from '../../ScrollingAnimations/ScrollingAnimations';
 import LoadInAnimation from '../../LoadInAnimation/LoadInAnimation';
 import ContactSubmitModal from '../ContactSubmitModal/ContactSubmitModal';
+import Footer from '../../footerComponents/Footer/Footer';
 
-import { postEmail } from '../../../functions/emailFunctions';
+import { COPY } from '../../../constants';
+
+import { postEmail } from '../../../apiCalls/emailFunctions';
+import { nameAndTitleValidation, emailValidation, messageValidation, requiredValidation } from '../../../validations/contactFormValidations';
 
 import styles from './Contact.module.css';
 
@@ -18,12 +22,19 @@ const INIT_STATE = {
   email: '',
   message: '',
 }
+
 const Contact = ({ isSelected }) => {
   const { colorObject, toggleOffNavBar, introAnimationShouldRun } = ProviderContext();
   const { colorOne, colorTwo, colorThree, colorFour } = colorObject;
   const [ formContent, setFormContent ] = useState(INIT_STATE);
+  const [ formContentErrors, setFormContentErrors ] = useState(INIT_STATE);
   const [ submissionModal, setSubmissionModal ] = useState(false);
+  const [ submissionError, setSubmissionError ] = useState(false);
+  const [ clipboardMessage, setClipboardMessage ] = useState(COPY);
+
   const { name, email, message } = formContent;
+
+  const errorColor = { color: colorFour };
 
   const inlineFloatingBoxStyles = {
     backgroundColor: 'transparent',
@@ -45,11 +56,19 @@ const Contact = ({ isSelected }) => {
     return <div key={key} style={inlineFloatingBoxStyles} className={classes}></div>
   };
 
-  const onClickContactContainer = () => {
-    toggleOffNavBar();
+  const onClickResetModal = () => {
     if (submissionModal) {
+      setSubmissionError(false);
       setSubmissionModal(false);
       setFormContent(INIT_STATE);
+      setClipboardMessage(COPY);
+    }
+  }
+
+  const onClickContactContainer = ({ target }) => {
+    toggleOffNavBar();
+    if (!target.closest(".contactModal")) {
+      onClickResetModal();
     }
   }
 
@@ -57,44 +76,69 @@ const Contact = ({ isSelected }) => {
     setFormContent((prevState) => ({ ...prevState, [name]: value }))
   }
 
+  const onBlur = (errorFunction) => ({ target: { name, value } }) => {
+    setFormContentErrors((prevState) => ({ ...prevState, [name]: errorFunction(name, value) }))
+  }
+
   const onSubmit = (e) => {
+    const errorArray = [];
     e.preventDefault();
-    postEmail(e, () => setFormContent(INIT_STATE), () => setSubmissionModal(true));
+
+    for (const key in formContent) {
+      if (!formContent[key]) {
+        errorArray.push(key)
+        setFormContentErrors((prevState) => ({
+          ...prevState,
+          [key]: requiredValidation(key, formContent[key])   
+        }))
+      } else if (!!formContentErrors[key]) {
+        errorArray.push(key)
+      }
+    }
+
+    if (!errorArray.length) {
+      postEmail(e, setSubmissionError, () => setSubmissionModal(true));
+    }
   }
 
   const leftContentArray = [
-    {name: 'name', type: 'text', value: name, func: onChange, classes: `${styles.name} ${styles.nameAndEmail}`},
-    {name: 'email', type: 'text', value: email, func: onChange, classes: `${styles.email} ${styles.nameAndEmail}`},
+    {name: 'name', type: 'text', value: name, onChange: onChange, onBlur: onBlur(nameAndTitleValidation), classes: `${styles.name} ${styles.nameAndEmail}`},
+    {name: 'email', type: 'text', value: email, onChange: onChange, onBlur: onBlur(emailValidation), classes: `${styles.email} ${styles.nameAndEmail}`},
   ];
 
   const leftFlexContent = 
     leftContentArray.map((item, index) => (
-      <label 
-        htmlFor={item.name}
-        key={`${item.name}${index}`}
-        className={item.classes}
-      >
-        <input 
-          name={item.name}
-          type={item.type} 
-          value={item.value}
-          onChange={item.func}
-          style={{ borderBottom: `1px solid ${colorTwo}`, color: colorTwo }}
-          placeholder={item.name}
-        />
-      </label>
+      <div key={`${item.name}${index}`}>
+        <label 
+          htmlFor={item.name}
+          className={item.classes}
+        >
+          <input 
+            name={item.name}
+            type={item.type} 
+            value={item.value}
+            onChange={item.onChange}
+            onBlur={item.onBlur}
+            style={{ borderBottom: `1px solid ${colorTwo}`, color: colorTwo }}
+            placeholder={item.name}
+          />
+        </label>
+        <div style={errorColor} className={styles.errorMessage}>{formContentErrors[item.name]}</div>
+      </div>
     ));
 
   const rightFlexContent = 
     <label className={styles.rightFlexContent} htmlFor="message">
       <textarea 
         onChange={onChange} 
+        onBlur={onBlur(messageValidation)}
         name="message" 
         id="message"
         value={message}
         placeholder="type your message here"
       >
       </textarea>
+      <div style={errorColor} className={styles.errorMessage}>{formContentErrors.message}</div>
     </label>;
 
   const form = 
@@ -119,9 +163,9 @@ const Contact = ({ isSelected }) => {
     </form>;
   return (
     <div 
+      onClick={onClickContactContainer}
       className={`container ${styles.contactContainer}`} 
       style={{ backgroundColor: colorOne }} 
-      onClick={onClickContactContainer}
     >
       {introAnimationShouldRun ? <LoadInAnimation/> : null}
       <FlashLight/>
@@ -133,12 +177,18 @@ const Contact = ({ isSelected }) => {
           classes={styles.scrollContainerWidth}
         />
       </section>
-      <ContactSubmitModal 
-        toggleOff={() => {setSubmissionModal(false); setFormContent(INIT_STATE);}} 
-        submissionModal={submissionModal} 
-        name={name} 
-        message={message}
-      />
+      <div className="contactModal">
+        <ContactSubmitModal 
+          toggleOff={onClickResetModal} 
+          submissionError={submissionError}
+          submissionModal={submissionModal} 
+          setClipboardMessage={setClipboardMessage}
+          clipboardMessage={clipboardMessage}
+          name={name} 
+          message={message}
+        />
+      </div>
+      <Footer/>
     </div>
   )
 }

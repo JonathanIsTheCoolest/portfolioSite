@@ -6,6 +6,7 @@ import {
   COLOR_OBJECT
 } from '../../constants';
 import styles from '../FlashLight/FlashLight.module.css';
+import { getColorObject } from '../../apiCalls/getColorObject';
 
 const FlashLight = () => {
   const {colorObject, setColorObject} = ProviderContext();
@@ -18,7 +19,7 @@ const FlashLight = () => {
     } else {
       localStorage.setItem(COLOR_OBJECT, JSON.stringify(LIGHT))
     }
-    setColorObject(name === LIGHT.name ? DARK : LIGHT)
+    setColorObject(getColorObject())
   };
 
   return (

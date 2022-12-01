@@ -1,0 +1,7 @@
+.externalLinks {
+  transition: var(--transition-two);
+}
+
+.externalLinks:hover {
+  font-size: calc(100% + var(--size-ten));
+}

@@ -5,10 +5,9 @@ import NavBar from '../../navBarComponents/NavBar/NavBar';
 import ParallaxContainer from '../../ParallaxContainer/ParallaxContainer';
 import ScrollingAnimations from '../../ScrollingAnimations/ScrollingAnimations';
 import LoadInAnimation from '../../LoadInAnimation/LoadInAnimation';
+import ExternalLinks from '../../ExternalLinks/ExternalLinks';
+import Footer from '../../footerComponents/Footer/Footer';
 import { ABOUT_PAGE_MESSAGE_ONE, ABOUT_PAGE_MESSAGE_TWO } from '../../../constants';
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithubAlt, faLinkedin, faMedium } from '@fortawesome/free-brands-svg-icons'
 
 import styles from './About.module.css';
 
@@ -50,15 +49,7 @@ const About = ({ isSelected }) => {
 
   const flexItemTwo = 
     <div style={{ color: colorTwo }} className={`flexItems ${styles.flexMessageTwoAndThree} ${styles.flexMessageTwo}`}>
-      <a href="https://github.com/JonathanIsTheCoolest">
-        <FontAwesomeIcon icon={faGithubAlt} style={{ color: colorTwo }}/>
-      </a>
-      <a href="https://www.linkedin.com/in/jonathan-lascano-benham-214ba0177/">
-        <FontAwesomeIcon icon={faLinkedin} style={{ color: colorTwo }}/>      
-      </a>
-      <a href="https://medium.com/@jonathanlascanobenham">
-        <FontAwesomeIcon icon={faMedium} style={{ color: colorTwo }}/>
-      </a>
+      <ExternalLinks/>
     </div>;
 
   const flexItemThree = 
@@ -89,6 +80,7 @@ const About = ({ isSelected }) => {
           ))
         }
       </section>
+      <Footer/>
     </div>
   )
 }

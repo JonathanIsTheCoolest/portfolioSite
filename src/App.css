@@ -3,7 +3,7 @@
   height: 100%;
   width: 100%;
   transition: var(--transition-three);
-  min-width: 300px;
+  min-width: var(--size-three-hundred);
   z-index: 10000;
   background-color: rgba(0, 0, 0, 1);
 }
@@ -22,7 +22,7 @@
 
 .flexItems {
   position: relative;
-  width: calc(300px + 10vw);
+  width: calc(var(--size-three-hundred) + 10vw);
   padding: calc(var(--size-twenty) + 1vw);
   border: 1px solid transparent;
   border-radius: var(--size-ten);
@@ -35,6 +35,6 @@
 
 @media screen and (max-width: 450px) {
   .flexItems {
-    width: calc(150px + 10vw);
+    width: calc(9.375rem + 10vw);
   }
 }

@@ -5,9 +5,9 @@ import About from "./components/aboutComponents/About/About";
 import Contact from "./components/contactComponents/Contact/Contact";
 import "./App.css";
 
+import { getColorObject } from "./apiCalls/getColorObject";
+
 import {
-  COLOR_OBJECT,
-  LIGHT_THEME_COLOR_OBJECT,
   HOME,
   ABOUT,
   CONTACT,
@@ -15,16 +15,6 @@ import {
   ABOUT_ADDRESS,
   CONTACT_ADDRESS,
 } from "./constants";
-
-const getColorObject = () => {
-  try {
-    const colorObject = localStorage.getItem(COLOR_OBJECT);
-    return colorObject ? JSON.parse(colorObject) : LIGHT_THEME_COLOR_OBJECT;
-  } catch (error) {
-    console.error(`Something went wrong: ${error}`);
-    return LIGHT_THEME_COLOR_OBJECT;
-  }
-};
 
 export const UserContext = createContext();
 const ContextProvider = ({ children }) => {

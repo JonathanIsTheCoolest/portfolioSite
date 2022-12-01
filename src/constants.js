@@ -77,6 +77,11 @@ export const LANGUAGE_ARRAY = [
   GIT_HUB,
 ];
 
+// clipboard messages
+export const COPY = "COPY";
+export const COPIED = "COPIED";
+export const FAILED_TO_COPY = "FAILED_TO_COPY";
+
 // Statements
 export const HOME_PAGE_STATEMENT =
   "Thank you for your interest in my work! I have experience building various kinds of websites with responsive design. I am open for freelance work and full-time employment";

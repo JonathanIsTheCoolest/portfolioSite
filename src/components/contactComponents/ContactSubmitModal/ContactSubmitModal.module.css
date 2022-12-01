@@ -4,13 +4,15 @@
   padding: calc(var(--size-ten) + 5vw);
   transition: var(--transition-two);
   position: fixed;
-  top: 100px;
-  right: 50px;
-  bottom: 50px;
-  left: 50px;
+  top: var(--size-one-hundred);
+  right: var(--size-fifty);
+  bottom: var(--size-fifty);
+  left: var(--size-fifty);
+  overflow: scroll;
 }
 
 .modalContainer,
+.modalContainerHidden,
 .clientMessageContainer {
   border: var(--size-two) solid;
 }
@@ -34,12 +36,32 @@
   position: absolute;
   top: 0;
   right: 0;
+  cursor: pointer;
 }
 
 .clientMessageContainer {
   border-radius: var(--size-five);
+  position: relative;
 }
 
 .clientMessage {
   padding: calc(var(--size-ten) + 1vw);
+  max-height: var(--size-fifty);
+  overflow: scroll;
+}
+
+.modalContainer .clientMessageContainer .copyTextButton {
+  width: fit-content;
+  border: var(--size-two) solid;
+  position: absolute;
+  bottom: -0.125rem;
+  right: -0.125rem;
+}
+
+.smallText {
+  font-size: calc(var(--size-ten) + 1vw);
+}
+
+.email {
+  cursor: pointer;
 }

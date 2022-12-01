@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ProviderContext} from '../../../App';
 import { buildTextPropsObject as buildProps } from '../../../functions/generalFunctions';
 import { HOME_ADDRESS, ABOUT_ADDRESS, CONTACT_ADDRESS, HOME, ABOUT, CONTACT } from '../../../constants';
@@ -21,6 +21,11 @@ const NavBar = ({ isSelected }) => {
     { type: 'Link', text: ABOUT, className: styles.about, route: ABOUT_ADDRESS },
     { type: 'Link', text: CONTACT, className: styles.contact, route: CONTACT_ADDRESS },
   ];
+
+  useEffect(() => {
+    window.addEventListener('load', setNavbarColor());
+    return window.removeEventListener('load', setNavbarColor());
+  }, [])
 
 
   const toggleOn = () => {

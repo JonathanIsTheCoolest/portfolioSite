@@ -5,38 +5,31 @@
 
 .contactContainer .formFlexContainer {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .outerFlexOne {
+  width: 100%;
   display: flex;
+  flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
-  flex-wrap: nowrap;
+}
+
+.innerFlexOne,
+.innerFlexTwo {
   width: 100%;
-  height: calc(var(--size-fifty) + 5vw);
 }
 
 .innerFlexOne {
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
   margin-right: calc(var(--size-ten) + 1vw);
   height: 100%;
-  width: 100%;
-  justify-content: space-evenly;
-}
-
-.innerFlexOne input {
-  background-color: transparent;
-  border: none;
-  border-bottom: 1px solid;
-  width: 100%;
-  height: 100%;
-}
-
-.innerFlexTwo,
-.innerFlexTwo textarea {
-  height: 100%;
-  width: 100%;
 }
 
 .innerFlexTwo {
@@ -44,7 +37,9 @@
 }
 
 .innerFlexTwo textarea {
-  position: relative;
+  height: calc(var(--size-fifty) + 5vw);
+  border-top-right-radius: var(--size-five);
+  border-bottom-right-radius: var(--size-five);
 }
 
 .outerFlexTwo {
@@ -98,21 +93,26 @@
   transform: translate(50%, -50%);
 }
 
- @media screen and (max-width: 600px) {
+.errorMessage {
+  font-size: calc(7px + 0.5vw);
+}
+
+@media screen and (max-width: 600px) {
   .outerFlexOne {
     flex-wrap: wrap;
   }
-  
+
   .innerFlexTwo,
   .innerFlexOne {
     margin: 0;
   }
 
-  .outerFlexTwo {
-    margin-top: 0;
+  .innerFlexOne {
+    height: auto;
   }
 
-  .formFlexContainer .outerFlexTwo input {
-    margin-top: 100%;
+  .innerFlexTwo textarea {
+    border-top-right-radius: 0;
+    border-bottom-left-radius: var(--size-five);
   }
- }
+}
