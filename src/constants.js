@@ -51,7 +51,7 @@ export const ABOUT = "About";
 export const CONTACT = "Contact";
 
 export const FIRST_NAME = "Jonathan";
-export const LAST_NAME = "Lascano";
+export const LAST_NAME = "Lascano-Rusu";
 
 // libraries, frameworks, languages
 
@@ -86,6 +86,7 @@ export const FAILED_TO_COPY = "FAILED_TO_COPY";
 export const HOME_PAGE_STATEMENT =
   "Thank you for your interest in my work! I have experience building various kinds of websites with responsive design. I am open for freelance work and full-time employment";
 
+// Message Fragments
 export const ABOUT_PAGE_MESSAGE_ONE = (
   <>
     I was born and raised in the San Francisco Bay Area and currently reside in

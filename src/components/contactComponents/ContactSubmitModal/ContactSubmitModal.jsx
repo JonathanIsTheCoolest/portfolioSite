@@ -1,7 +1,10 @@
 import React from "react";
 import { ProviderContext } from '../../../App';
 
-import { COPY, COPIED, FAILED_TO_COPY } from "../../../constants";
+import { 
+  COPY, COPIED, FAILED_TO_COPY,
+  FIRST_NAME, LAST_NAME 
+} from "../../../constants";
 
 import { makeNameIntoTitle } from "../../../functions/generalFunctions";
 
@@ -36,11 +39,11 @@ const ContactSubmitModal = ({ toggleOff, submissionError, submissionModal, name,
     navigator.clipboard
     .writeText(itemToCopy)
     .then(() => {
-      console.log('Async: Copying to clipboard was successful!');
+      console.log('Copying to clipboard was successful!');
       setClipMessage(COPIED);
     })
     .catch((error) => {
-      console.error(`Async: Could not copy text: ${error}`)
+      console.error(`Could not copy text: ${error}`)
       setClipMessage(FAILED_TO_COPY);
     })
   }
@@ -100,7 +103,7 @@ const ContactSubmitModal = ({ toggleOff, submissionError, submissionModal, name,
         <br/><br/>
         Sincerely,
         <br/>
-        Jonathan Lascano-Rusu
+        {FIRST_NAME} {LAST_NAME}
       </div>
     </div>
   )

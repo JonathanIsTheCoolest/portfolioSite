@@ -50,17 +50,17 @@ const Home = ({ isSelected }) => {
 
   // Bottom Flex Container
 
-const inlineFloatingBoxStyles = {
-  backgroundColor: 'transparent',
-  borderColor: colorTwo,
-  color: colorTwo,
-}
+  const inlineFloatingBoxStyles = {
+    backgroundColor: 'transparent',
+    borderColor: colorTwo,
+    color: colorTwo,
+  }
 
-const inlineFlexItemStyles = {
-  backgroundColor: colorThree,
-  borderColor: 'transparent',
-  color: colorTwo,
-}
+  const inlineFlexItemStyles = {
+    backgroundColor: colorThree,
+    borderColor: 'transparent',
+    color: colorTwo,
+  }
 
   const leftAbsoluteClasses = [
     styles.topLeftBoxOne, styles.topLeftBoxTwo,
@@ -74,7 +74,7 @@ const inlineFlexItemStyles = {
 
   const makeBoxDiv = (key, classes) => {
   return <div key={key} style={inlineFloatingBoxStyles} className={classes}></div>
-}
+  }
 
   const flexItemOne = 
     <div style={inlineFlexItemStyles} className={`${styles.resumeContainer} flexItems`}>

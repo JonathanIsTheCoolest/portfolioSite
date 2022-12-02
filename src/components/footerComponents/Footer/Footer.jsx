@@ -2,6 +2,8 @@ import React from 'react';
 import { ProviderContext } from '../../../App';
 import ExternalLinks from '../../ExternalLinks/ExternalLinks';
 
+import { FIRST_NAME, LAST_NAME } from '../../../constants';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCopyright } from '@fortawesome/free-regular-svg-icons';
 
@@ -17,7 +19,7 @@ const Footer = () => {
       </div>
       <div className={styles.copyRightContainer}>
         <FontAwesomeIcon className={styles.copyRightIcon} icon={faCopyright} style={{ color: colorTwo }}/>      
-        <span style={{ color: colorTwo }} className={styles.copyRightText}>2022 Jonathan Lascano-Rusu</span>
+        <span style={{ color: colorTwo }} className={styles.copyRightText}>2022 {FIRST_NAME} {LAST_NAME}</span>
       </div>
     </footer>
   )
