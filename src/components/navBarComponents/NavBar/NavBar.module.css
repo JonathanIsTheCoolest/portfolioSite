@@ -39,6 +39,11 @@
 
 .navBar .logo {
   font-size: calc(var(--size-twenty) + 1vw);
+  transition: var(--transition-one);
+}
+
+.navBar .flipLogo {
+  transform: rotate(360deg);
 }
 
 .navBar .hamburgerMenuContainer {

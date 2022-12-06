@@ -65,7 +65,7 @@ const NavBar = ({ isSelected }) => {
   return (
     <div className={styles.navBar} style={{backgroundColor: isWindowTop ? 'transparent' : colorFour}}>
       <div onClick={toggleOffNavBar} className={styles.logoContainer}>
-        <Link className={styles.logo} style={{ color: colorTwo }} to={HOME_ADDRESS}>
+        <Link className={`${styles.logo} ${!isWindowTop ? styles.flipLogo : null}`} style={{ color: colorTwo }} to={HOME_ADDRESS}>
           JLR
         </Link>
       </div>
