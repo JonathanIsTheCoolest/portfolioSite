@@ -41,3 +41,9 @@ export const makeNameIntoTitle = (name) => {
     .trim();
   return titleName;
 };
+
+// Check media type
+export const isMobile =
+  /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+    navigator.userAgent
+  );

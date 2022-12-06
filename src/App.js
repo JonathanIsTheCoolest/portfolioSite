@@ -3,18 +3,15 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./components/homeComponents/Home/Home";
 import About from "./components/aboutComponents/About/About";
 import Contact from "./components/contactComponents/Contact/Contact";
+import RouteError from "./components/errorPages/RouteError/RouteError";
+import NavBar from "./components/navBarComponents/NavBar/NavBar";
+import FlashLight from "./components/FlashLight/FlashLight";
+import Footer from "./components/footerComponents/Footer/Footer";
 import "./App.css";
 
 import { getColorObject } from "./apiCalls/getColorObject";
 
-import {
-  HOME,
-  ABOUT,
-  CONTACT,
-  HOME_ADDRESS,
-  ABOUT_ADDRESS,
-  CONTACT_ADDRESS,
-} from "./constants";
+import { HOME_ADDRESS, ABOUT_ADDRESS, CONTACT_ADDRESS } from "./constants";
 
 export const UserContext = createContext();
 const ContextProvider = ({ children }) => {
@@ -22,6 +19,7 @@ const ContextProvider = ({ children }) => {
   const [isToggledOffNavBar, setIsToggledOffNavBar] = useState(false);
   const [introAnimationShouldRun, setIntroAnimationShouldRun] = useState(true);
   const [colorObject, setColorObject] = useState(getColorObject());
+  const [navSelected, setNavSelected] = useState("");
   const toggleOffNavBar = () => {
     if (isToggledNavBar && !isToggledOffNavBar) {
       setIsToggledOffNavBar(true);
@@ -43,6 +41,8 @@ const ContextProvider = ({ children }) => {
         setIsToggledOffNavBar,
         introAnimationShouldRun,
         setIntroAnimationShouldRun,
+        navSelected,
+        setNavSelected,
         colorObject,
         setColorObject,
         toggleOffNavBar,
@@ -57,14 +57,15 @@ function App() {
   return (
     <ContextProvider>
       <Router>
+        <NavBar />
         <Routes>
-          <Route path={HOME_ADDRESS} element={<Home isSelected={HOME} />} />
-          <Route path={ABOUT_ADDRESS} element={<About isSelected={ABOUT} />} />
-          <Route
-            path={CONTACT_ADDRESS}
-            element={<Contact isSelected={CONTACT} />}
-          />
+          <Route path={HOME_ADDRESS} element={<Home />} />
+          <Route path={ABOUT_ADDRESS} element={<About />} />
+          <Route path={CONTACT_ADDRESS} element={<Contact />} />
+          <Route path="*" element={<RouteError />} />
         </Routes>
+        <FlashLight />
+        <Footer />
       </Router>
     </ContextProvider>
   );
@@ -82,6 +83,8 @@ export const ProviderContext = () => {
     setIsToggledOffNavBar: context.setIsToggledOffNavBar,
     introAnimationShouldRun: context.introAnimationShouldRun,
     setIntroAnimationShouldRun: context.setIntroAnimationShouldRun,
+    navSelected: context.navSelected,
+    setNavSelected: context.setNavSelected,
     colorObject: context.colorObject,
     setColorObject: context.setColorObject,
     toggleOffNavBar: context.toggleOffNavBar,

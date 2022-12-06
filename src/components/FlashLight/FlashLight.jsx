@@ -7,6 +7,7 @@ import {
 } from '../../constants';
 import styles from '../FlashLight/FlashLight.module.css';
 import { getColorObject } from '../../apiCalls/getColorObject';
+import { isMobile } from '../../functions/generalFunctions';
 
 const FlashLight = () => {
   const {colorObject, setColorObject} = ProviderContext();
@@ -36,7 +37,11 @@ const FlashLight = () => {
           onMouseLeave={() => setIsHovered(false)}
         />
           <div
-           className={ isHovered ? styles.flashLightMessageContainer : styles.flashLightMessageNone }
+           className={ 
+            isHovered ? 
+            isMobile ? styles.flashLightMessageNone : styles.flashLightMessageContainer :
+            styles.flashLightMessageNone 
+          }
           >
             <div 
               style={{ borderColor: 'transparent', color: colorTwo, backgroundColor: colorTwo }} 

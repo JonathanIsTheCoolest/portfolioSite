@@ -1,14 +1,11 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { ProviderContext } from '../../../App';
-import FlashLight from '../../FlashLight/FlashLight';
-import NavBar from '../../navBarComponents/NavBar/NavBar';
 import ParallaxContainer from '../../ParallaxContainer/ParallaxContainer';
 import ScrollingAnimations from '../../ScrollingAnimations/ScrollingAnimations';
 import LoadInAnimation from '../../LoadInAnimation/LoadInAnimation';
 import ContactSubmitModal from '../ContactSubmitModal/ContactSubmitModal';
-import Footer from '../../footerComponents/Footer/Footer';
 
-import { COPY } from '../../../constants';
+import { COPY, CONTACT } from '../../../constants';
 
 import { postEmail } from '../../../apiCalls/emailFunctions';
 import { nameAndTitleValidation, emailValidation, messageValidation, requiredValidation } from '../../../validations/contactFormValidations';
@@ -23,14 +20,18 @@ const INIT_STATE = {
   message: '',
 }
 
-const Contact = ({ isSelected }) => {
-  const { colorObject, toggleOffNavBar, introAnimationShouldRun } = ProviderContext();
+const Contact = () => {
+  const { colorObject, toggleOffNavBar, introAnimationShouldRun, setNavSelected } = ProviderContext();
   const { colorOne, colorTwo, colorThree, colorFour } = colorObject;
   const [ formContent, setFormContent ] = useState(INIT_STATE);
   const [ formContentErrors, setFormContentErrors ] = useState(INIT_STATE);
   const [ submissionModal, setSubmissionModal ] = useState(false);
   const [ submissionError, setSubmissionError ] = useState(false);
   const [ clipboardMessage, setClipboardMessage ] = useState(COPY);
+
+  useEffect (() => {
+    setNavSelected(CONTACT)
+  }, [setNavSelected])
 
   const { name, email, message } = formContent;
 
@@ -168,8 +169,6 @@ const Contact = ({ isSelected }) => {
       style={{ backgroundColor: colorOne }} 
     >
       {introAnimationShouldRun ? <LoadInAnimation/> : null}
-      <FlashLight/>
-      <NavBar isSelected={isSelected}/>
       <ParallaxContainer image={myPhoto}/>
       <section className={`lowerContentContainer ${styles.contactContainer}`}>
         <ScrollingAnimations
@@ -188,7 +187,6 @@ const Contact = ({ isSelected }) => {
           message={message}
         />
       </div>
-      <Footer/>
     </div>
   )
 }

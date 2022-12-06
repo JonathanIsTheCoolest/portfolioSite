@@ -1,11 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import { ProviderContext } from '../../../App';
 import LoadInAnimation from '../../LoadInAnimation/LoadInAnimation';
-import FlashLight from '../../FlashLight/FlashLight';
-import NavBar from '../../navBarComponents/NavBar/NavBar';
 import ParallaxContainer from '../../ParallaxContainer/ParallaxContainer';
-import Footer from '../../footerComponents/Footer/Footer';
-import { FIRST_NAME, HOME_PAGE_STATEMENT, LANGUAGE_ARRAY } from '../../../constants';
+import { FIRST_NAME, HOME, HOME_PAGE_STATEMENT, LANGUAGE_ARRAY } from '../../../constants';
 
 import TagCloud from 'TagCloud';
 
@@ -15,13 +12,17 @@ import myPhoto from '../../../assets/myPictures/jonathanHome.jpg';
 
 import styles from '../Home/Home.module.css';
 
-const Home = ({ isSelected }) => {
-  const {introAnimationShouldRun, colorObject, toggleOffNavBar} = ProviderContext();
+const Home = () => {
+  const {introAnimationShouldRun, colorObject, toggleOffNavBar, setNavSelected} = ProviderContext();
   const {colorOne, colorTwo, colorThree, colorFour} = colorObject;
 
   let ignore = useRef(false);
 
   let windowPxAdd = window.innerWidth / 25;
+
+  useEffect (() => {
+    setNavSelected(HOME)
+  }, [setNavSelected])
 
   useEffect (() => {
     let tagConstraints = {
@@ -109,8 +110,6 @@ const Home = ({ isSelected }) => {
   return (
     <div className="container" style={{backgroundColor: colorOne}} onClick={toggleOffNavBar}>
       {introAnimationShouldRun ? <LoadInAnimation/> : null}
-      <FlashLight/>
-      <NavBar isSelected={isSelected}/>
       <ParallaxContainer style={{ color: colorTwo }} image={myPhoto} content={parallaxContent}/>
       <section className={`lowerContentContainer`}>
         {
@@ -123,7 +122,6 @@ const Home = ({ isSelected }) => {
           ))
         }
       </section>
-      <Footer/>
     </div>
   )
 }

@@ -11,9 +11,9 @@ import StyledNavText from '../StyledNavText/StyledNavText';
 import styles from '../NavBar/NavBar.module.css';
 import { Link } from 'react-router-dom';
 
-const NavBar = ({ isSelected }) => {
+const NavBar = () => {
   const [ isWindowTop, setIsWindowTop ] = useState(true);
-  const {colorObject, setIsToggledNavBar, setIsToggledOffNavBar, isToggledNavBar, isToggledOffNavBar, toggleOffNavBar} = ProviderContext();
+  const {colorObject, setIsToggledNavBar, setIsToggledOffNavBar, isToggledNavBar, isToggledOffNavBar, toggleOffNavBar, navSelected} = ProviderContext();
   const {colorTwo, colorFour} = colorObject;
 
   const navBarObject = [
@@ -47,7 +47,7 @@ const NavBar = ({ isSelected }) => {
       className={styles.navOptions}
     >
       <StyledNavText 
-        isSelected={isSelected}
+        isSelected={navSelected}
         props={buildProps({type: item.type, text: item.text, className: item.className, route: item.route})}
       />
     </div>

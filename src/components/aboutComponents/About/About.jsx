@@ -1,21 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ProviderContext } from '../../../App';
-import FlashLight from '../../FlashLight/FlashLight';
-import NavBar from '../../navBarComponents/NavBar/NavBar';
 import ParallaxContainer from '../../ParallaxContainer/ParallaxContainer';
 import ScrollingAnimations from '../../ScrollingAnimations/ScrollingAnimations';
 import LoadInAnimation from '../../LoadInAnimation/LoadInAnimation';
 import ExternalLinks from '../../ExternalLinks/ExternalLinks';
-import Footer from '../../footerComponents/Footer/Footer';
-import { ABOUT_PAGE_MESSAGE_ONE, ABOUT_PAGE_MESSAGE_TWO } from '../../../constants';
+import { ABOUT_PAGE_MESSAGE_ONE, ABOUT_PAGE_MESSAGE_TWO, ABOUT } from '../../../constants';
 
 import styles from './About.module.css';
 
 import myPhoto from '../../../assets/myPictures/jonathanAbout.png';
 
-const About = ({ isSelected }) => {
-  const { colorObject, toggleOffNavBar, introAnimationShouldRun } = ProviderContext();
+const About = () => {
+  const { colorObject, toggleOffNavBar, introAnimationShouldRun, setNavSelected } = ProviderContext();
   const { colorOne, colorTwo, colorThree } = colorObject;
+
+  useEffect(() => {
+    setNavSelected(ABOUT)
+  }, [setNavSelected])
 
   const inlineFloatingBoxStyles = {
     backgroundColor: 'transparent',
@@ -65,8 +66,6 @@ const About = ({ isSelected }) => {
   return (
     <div className={`container ${styles.aboutContainer}`} style={{backgroundColor: colorOne}} onClick={toggleOffNavBar}>
       {introAnimationShouldRun ? <LoadInAnimation/> : null}
-      <FlashLight/>
-      <NavBar isSelected={isSelected}/>
       <ParallaxContainer image={myPhoto}/>
       <section className={`lowerContentContainer ${styles.gridContainer}`}>
       {
@@ -80,7 +79,6 @@ const About = ({ isSelected }) => {
           ))
         }
       </section>
-      <Footer/>
     </div>
   )
 }
