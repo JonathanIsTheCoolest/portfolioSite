@@ -1,6 +1,7 @@
+
+.removeParallax,
 .parallaxContainer {
   font-family: 'Sen', san-serif;
-  background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -8,10 +9,17 @@
   height: 100vh;
 }
 
+.parallaxContainer {
+  background-attachment: fixed;
+}
+
 .parallaxContent {
   padding-top: var(--size-fifty);
 }
 
+.removeParallax h1,
+.removeParallax h2,
+.removeParallax div,
 .parallaxContainer h1,
 .parallaxContainer h2,
 .parallaxContainer div {
@@ -19,11 +27,14 @@
   font-weight: 400;
 }
 
+.removeParallax h1,
+.removeParallax h2,
 .parallaxContainer h1,
 .parallaxContainer h2 {
   font-size: calc(var(--size-ten) + 1vw);
 }
 
+.removeParallax div,
 .parallaxContainer div {
   font-size: calc(var(--size-thirty) + 1vw);
 }
