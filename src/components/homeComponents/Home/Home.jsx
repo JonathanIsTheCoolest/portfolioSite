@@ -9,6 +9,7 @@ import TagCloud from 'TagCloud';
 import ScrollingAnimations from '../../ScrollingAnimations/ScrollingAnimations';
 
 import myPhoto from '../../../assets/myPictures/jonathanHome.jpg';
+import myResume from '../../../assets/resume/myResume.pdf';
 
 import styles from '../Home/Home.module.css';
 
@@ -82,7 +83,7 @@ const Home = () => {
       <div>
         {HOME_PAGE_STATEMENT} 
       </div>
-      <a href={myPhoto} download="Jonathans Resume">
+      <a href={myResume} download="Jonathans Resume">
         <input style={{ color: colorTwo, backgroundColor: colorFour }} type="button" value="<DownloadResume/>"/>
       </a>
       {
