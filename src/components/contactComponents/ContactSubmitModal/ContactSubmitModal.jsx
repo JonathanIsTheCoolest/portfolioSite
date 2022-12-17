@@ -13,7 +13,7 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 import styles from '../ContactSubmitModal/ContactSubmitModal.module.css';
 
-const EMAIL = 'jonathanlascano2393@gmail.com';
+const EMAIL = 'jonathanlascanobenham@gmail.com';
 
 const ContactSubmitModal = ({ toggleOff, submissionError, submissionModal, name, message, clipboardMessage, setClipboardMessage }) => {
   const { colorObject } = ProviderContext();
