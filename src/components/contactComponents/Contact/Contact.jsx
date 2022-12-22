@@ -7,8 +7,9 @@ import ContactSubmitModal from '../ContactSubmitModal/ContactSubmitModal';
 
 import { COPY, CONTACT } from '../../../constants';
 
-import { postEmail } from '../../../apiCalls/emailFunctions';
 import { nameAndTitleValidation, emailValidation, messageValidation, requiredValidation } from '../../../validations/contactFormValidations';
+
+import { sendEmail } from '../../../apiCalls/sendEmail';
 
 import styles from './Contact.module.css';
 
@@ -98,7 +99,7 @@ const Contact = () => {
     }
 
     if (!errorArray.length) {
-      postEmail(e, setSubmissionError, () => setSubmissionModal(true));
+      sendEmail('/.netlify/functions/sendgrid', formContent, setSubmissionError, setSubmissionModal)
     }
   }
 
