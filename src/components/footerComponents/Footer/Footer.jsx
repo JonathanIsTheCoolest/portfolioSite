@@ -18,8 +18,7 @@ const Footer = () => {
         <ExternalLinks/>
       </div>
       <div className={styles.copyRightContainer}>
-        <FontAwesomeIcon className={styles.copyRightIcon} icon={faCopyright} style={{ color: colorTwo }}/>      
-        <span style={{ color: colorTwo }} className={styles.copyRightText}>2022 {FIRST_NAME} {LAST_NAME}</span>
+        <FontAwesomeIcon className={styles.copyRightIcon} icon={faCopyright} style={{ color: colorTwo }}/> <span style={{ color: colorTwo }} className={styles.copyRightText}>2022 {FIRST_NAME} {LAST_NAME}</span>
       </div>
     </footer>
   )
