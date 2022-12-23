@@ -22,6 +22,7 @@
 
 .copyRightContainer {
   justify-content: space-between;
+  flex-wrap: nowrap;
 }
 
 .copyRightIcon {
