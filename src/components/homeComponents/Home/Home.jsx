@@ -44,7 +44,7 @@ const Home = () => {
     <div className={styles.parallaxMessageContainer} style={{ color: colorTwo }}>
       <div className={styles.parallaxLargeTextContainer}>
         <div>Hello</div>
-        <div>I'm {FIRST_NAME}</div>
+        <div>I<span style={{ color: colorFour }}>'</span>m {FIRST_NAME}</div>
       </div>
       <h1>WEB DEVELOPER</h1>
       <h2>specialized in React</h2>

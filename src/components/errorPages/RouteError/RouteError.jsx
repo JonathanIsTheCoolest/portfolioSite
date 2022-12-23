@@ -4,7 +4,7 @@ import { ProviderContext } from '../../../App';
 import ParallaxContainer from '../../ParallaxContainer/ParallaxContainer';
 
 const RouteError = () => {
-  const { colorObject } = ProviderContext();
+  const { colorObject, toggleOffNavBar } = ProviderContext();
   const { colorTwo, colorFour } = colorObject;
   const parallaxContent = 
     <h1 style={{ color: colorTwo }}>
@@ -13,7 +13,7 @@ const RouteError = () => {
       <Link to="/" style={{ color: colorFour }}>Go Back To Home</Link>
     </h1>
   return (
-    <div>
+    <div onClick={toggleOffNavBar}>
       <ParallaxContainer content={parallaxContent}/>
     </div>
   )

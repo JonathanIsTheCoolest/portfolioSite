@@ -5,7 +5,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: calc(var(--size-twenty) + 1vw);
+  padding: calc(calc(var(--size-twenty) + var(--size-five)) + 1vw);
   box-shadow: 0 0 5px black;
 }
 
@@ -30,5 +30,5 @@
 } 
 
 .copyRightText {
-  font-size: calc(var(--size-fifteen) + 0.5vw);
+  font-size: calc(var(--size-ten) + 0.5vw);
 } 
