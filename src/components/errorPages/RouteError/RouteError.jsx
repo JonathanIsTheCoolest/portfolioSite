@@ -1,11 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { ProviderContext } from '../../../App';
+import ParallaxContainer from '../../ParallaxContainer/ParallaxContainer';
 
 const RouteError = () => {
+  const { colorObject } = ProviderContext();
+  const { colorTwo, colorFour } = colorObject;
+  const parallaxContent = 
+    <h1 style={{ color: colorTwo }}>
+      Sorry this page does not exist
+      <br /><br />
+      <Link to="/" style={{ color: colorFour }}>Go Back To Home</Link>
+    </h1>
   return (
     <div>
-      Sorry this page does not exist
-      <Link to="/">Go Back To Home</Link>
+      <ParallaxContainer content={parallaxContent}/>
     </div>
   )
 }
