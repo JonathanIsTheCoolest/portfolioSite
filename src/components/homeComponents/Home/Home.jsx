@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { ProviderContext } from '../../../App';
 import LoadInAnimation from '../../LoadInAnimation/LoadInAnimation';
 import ParallaxContainer from '../../ParallaxContainer/ParallaxContainer';
-import { FIRST_NAME, HOME, HOME_PAGE_STATEMENT, LANGUAGE_ARRAY } from '../../../constants';
+import { FIRST_NAME, HOME, LANGUAGE_ARRAY } from '../../../constants';
 
 import TagCloud from 'TagCloud';
 
@@ -46,7 +46,7 @@ const Home = () => {
         <div>Hello</div>
         <div>I<span style={{ color: colorFour }}>'</span>m {FIRST_NAME}</div>
       </div>
-      <h1>WEB DEVELOPER</h1>
+      <h1>FULLSTACK DEVELOPER</h1>
       <h2>specialized in React</h2>
     </div>
 
@@ -81,7 +81,11 @@ const Home = () => {
   const flexItemOne = 
     <div style={inlineFlexItemStyles} className={`${styles.resumeContainer} flexItems`}>
       <div>
-        {HOME_PAGE_STATEMENT} 
+        Thank you for your interest in my work! I have experience building various
+        kinds of websites and mobile applications with responsive design. I am
+        currently working on the mobile app for{` `}
+        <a style={{ color: colorFour }} href="https://wisdm.webflow.io/">Wisdm</a>
+        . Let's build <i>your</i> dream app, website, or feature.
       </div>
       <a href={myResume} download="Jonathans Resume">
         <input style={{ color: colorTwo, backgroundColor: colorFour }} type="button" value="<DownloadResume/>"/>
