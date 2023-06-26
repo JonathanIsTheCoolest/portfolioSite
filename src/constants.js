@@ -58,9 +58,12 @@ export const LAST_NAME = "Lascano-Rusu";
 export const HTML = "HTML";
 export const CSS = "CSS";
 export const JAVASCRIPT = "JavaScript";
+export const TYPESCRIPT = "TypeScript";
+export const PYTHON = "Python";
 export const GIT = "git";
 export const GIT_HUB = "GitHub";
 export const REACT = "React";
+export const REACT_NATIVE = "React Native";
 export const NODE_JS = "Node.js";
 export const EXPRESS = "Express.js";
 export const MONGO_DB = "MongoDB";
@@ -69,7 +72,10 @@ export const LANGUAGE_ARRAY = [
   HTML,
   CSS,
   JAVASCRIPT,
+  TYPESCRIPT,
+  PYTHON,
   REACT,
+  REACT_NATIVE,
   NODE_JS,
   EXPRESS,
   MONGO_DB,
