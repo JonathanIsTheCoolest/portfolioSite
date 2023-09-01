@@ -12,7 +12,7 @@ const ExternalLinks = () => {
 
   const iconArray = [
     {name: 'gitHub', ref: 'https://github.com/JonathanIsTheCoolest', icon: faGithubAlt, color: colorTwo},
-    {name: 'linkedIn', ref: 'https://www.linkedin.com/in/jonathan-lascano-benham-214ba0177/', icon: faLinkedin, color: colorTwo},
+    {name: 'linkedIn', ref: 'https://www.linkedin.com/in/jonathan-lascano-rusu-214ba0177/', icon: faLinkedin, color: colorTwo},
     {name: 'medium', ref: 'https://medium.com/@jonathanlascanobenham', icon: faMedium, color: colorTwo},
   ]
   return (
