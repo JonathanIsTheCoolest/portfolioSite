@@ -112,8 +112,8 @@ export const ABOUT_PAGE_MESSAGE_ONE = (
     wife!
     <br />
     <br />
-    My programming related hobbies include stubbornly reading documentation and
-    liking coding memes on LinkedIn.
+    My programming related hobbies include reading documentation, laughing at
+    coding memes, and writing clean and efficient solutions.
   </>
 );
 

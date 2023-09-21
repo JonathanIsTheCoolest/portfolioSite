@@ -1,0 +1,59 @@
+.imageContainer {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  
+  background-color: whitesmoke;
+  animation-name: imageAnimation;
+  animation-duration: 500ms;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes imageAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.imagePlaceholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-color: whitesmoke;
+}
+
+.imagePlaceholderBar {
+  position: absolute;
+  height: 10%;
+  width: 200vw;
+  transform: translateX(-50%) rotate(-45deg);
+  background-color: white;
+  top: -10%;
+  left: -10%;
+  box-shadow: 0 0 var(--size-fifteen) white;
+  animation-name: movingBar;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes movingBar {
+  100% {
+    top: 110%;
+    left: 110%;
+  }
+}
